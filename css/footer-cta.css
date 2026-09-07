@@ -1,0 +1,132 @@
+/* ===== Footer CTA card — same fluted-glass gradient as the upload illustration ===== */
+.framer-kl79kt {
+  background-color: #c7c9cd;
+  background-image:
+    radial-gradient(circle at 22% 60%, rgba(230,135,40,0.6), transparent 42%),
+    radial-gradient(circle at 78% 40%, rgba(30,80,220,0.55), transparent 45%),
+    radial-gradient(circle at 50% 50%, rgba(255,255,255,0.25), transparent 60%);
+  background-size: cover;
+  background-position: center;
+  border-radius: 32px;
+  overflow: hidden;
+  padding-top: 56px !important;
+  padding-bottom: 56px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+/* Text/button treatment to match the upload-illustration reference:
+   bold white headline, muted light subtext, gradient pill CTA.
+   Extra-specific selectors (html.theme-light prefix) needed to beat the
+   same-specificity light-theme overrides in theme.css. */
+html.theme-light .framer-kl79kt .framer-styles-preset-mnfyzd,
+.framer-kl79kt .framer-styles-preset-mnfyzd {
+  color: #ffffff !important;
+}
+html.theme-light .framer-kl79kt .framer-styles-preset-1xv0u9n,
+.framer-kl79kt .framer-styles-preset-1xv0u9n {
+  color: rgba(255,255,255,0.85) !important;
+}
+html.theme-light .framer-kl79kt .framer-6yhlt6,
+.framer-kl79kt .framer-6yhlt6 {
+  background: linear-gradient(135deg, #ffab5c, #4f7fff) !important;
+  border-color: rgba(255,255,255,0.5) !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 14px 24px !important;
+  min-width: 0 !important;
+}
+html.theme-light .framer-kl79kt .framer-6yhlt6 .imp-rtext,
+html.theme-light .framer-kl79kt .framer-6yhlt6 p,
+.framer-kl79kt .framer-6yhlt6 .imp-rtext,
+.framer-kl79kt .framer-6yhlt6 p {
+  color: #ffffff !important;
+  font-weight: 600;
+}
+
+/* Primary + secondary button pair, matching the upload-illustration
+   reference (filled gradient pill + plain outlined pill side by side). */
+.footer-cta-buttons {
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.footer-cta-buttons .framer-avkmd0-container {
+  flex: 0 1 auto;
+  width: auto !important;
+}
+.footer-cta-buttons .framer-avkmd0-container a {
+  width: auto !important;
+}
+.footer-cta-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 24px;
+  border-radius: 15px;
+  border: 1px solid rgba(255,255,255,0.6);
+  background: transparent;
+  color: #ffffff;
+  font-family: sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  white-space: nowrap;
+}
+.footer-cta-secondary:hover {
+  background: rgba(255,255,255,0.12);
+}
+
+/* ===== Recreated upload-illustration content (real text/buttons) ===== */
+.footer-cta-recreate {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 16px;
+  padding: 8px 24px;
+}
+.footer-cta-icon-circle {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, rgba(255,171,92,0.9), rgba(79,127,255,0.9));
+  box-shadow: 0 8px 24px rgba(0,0,0,0.15), inset 0 1px 1px rgba(255,255,255,0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.footer-cta-title {
+  font-family: sans-serif;
+  font-size: 28px;
+  font-weight: 500;
+  color: #ffffff;
+  margin: 0;
+}
+.footer-cta-subtitle {
+  font-family: sans-serif;
+  font-size: 14px;
+  color: rgba(255,255,255,0.75);
+  max-width: 520px;
+  margin: 0;
+  line-height: 1.5;
+}
+.footer-cta-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 24px;
+  border: 1px solid rgba(255,255,255,0.5);
+  border-radius: 15px;
+  background: linear-gradient(135deg, #ffab5c, #4f7fff);
+  color: #ffffff;
+  font-family: sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+}

@@ -1,0 +1,60 @@
+/* ===== Clickable hotspots over the static "upload" illustration =====
+   The illustration is a flat image, so the circle / "Выбрать файлы" /
+   "Создать ЛК" drawn inside it aren't real controls. These transparent,
+   absolutely-positioned elements sit on top at the same spots and wire
+   up real behaviour (native file picker, real link). */
+.upload-hotspot-input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+.upload-hotspot {
+  position: absolute;
+  background: transparent;
+  border: none;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  border-radius: 999px;
+  transition: background 0.2s ease;
+}
+.upload-hotspot:hover,
+.upload-hotspot:focus-visible {
+  background: rgba(255, 255, 255, 0.08);
+  outline: none;
+}
+.upload-hotspot--circle {
+  left: 38%;
+  top: 19%;
+  width: 22%;
+  height: 25%;
+  border-radius: 50%;
+}
+.upload-hotspot--pick {
+  left: 25%;
+  top: 61%;
+  width: 29%;
+  height: 9%;
+}
+.upload-hotspot--cabinet {
+  left: 55%;
+  top: 61%;
+  width: 21%;
+  height: 9%;
+  display: block;
+}
+.upload-hotspot-status {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 72%;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.85);
+  font-family: sans-serif;
+  font-size: 13px;
+  pointer-events: none;
+}

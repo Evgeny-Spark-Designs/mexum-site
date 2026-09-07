@@ -1,0 +1,15 @@
+/* ===== Scroll-linked fill under each tab label =====
+   The track (.framer-1kxdxzp) is a 1px full-width line; the highlight
+   (.framer-dv0q2q) fills it left-to-right (like a reading-progress bar)
+   as its row scrolls past a reference point in the viewport. JS sets
+   --fill (0 to 1) per row; overflow:hidden on the tab item guarantees
+   the fill can never bleed past its own column regardless. */
+.framer-j2hBN {
+  overflow: hidden;
+}
+.framer-dv0q2q {
+  --fill: 0;
+  transform-origin: left center !important;
+  transform: scaleX(var(--fill)) !important;
+  transition: transform 0.05s linear;
+}

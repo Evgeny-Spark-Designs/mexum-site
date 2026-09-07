@@ -1,0 +1,27 @@
+/* ===== Wide panel image override =====
+   The "AI Solution" slot was sized for a 788x922 portrait screenshot with
+   object-fit:cover; the replacement is a landscape infographic (1402x1122)
+   that needs to stay uncropped, so it switches to object-fit:contain and
+   the slot widens a bit so the image doesn't render tiny and letterboxed. */
+.framer-181v5l2:has(.panel-img-wide) {
+  overflow: visible !important;
+}
+.framer-JNpes:has(.panel-img-wide) {
+  overflow: visible !important;
+}
+figure.panel-img-wide {
+  position: absolute !important;
+  top: 0 !important;
+  right: 0 !important;
+  left: auto !important;
+  height: 100% !important;
+  width: auto !important;
+  aspect-ratio: 1254 / 1254 !important;
+}
+/* Soft fade only on the outer left edge so the card background blends
+   into the photo without touching the "01" callout, which starts close
+   to that edge in this square crop. */
+figure.panel-img-wide img {
+  mask-image: linear-gradient(90deg, transparent 0%, black 6%);
+  -webkit-mask-image: linear-gradient(90deg, transparent 0%, black 6%);
+}

@@ -1,0 +1,20 @@
+/* ===== Auto-hide nav on scroll (hide on scroll down, show on scroll up) ===== */
+.framer-dpe114-container {
+  transition: transform 0.35s cubic-bezier(.25,.1,.25,1);
+  will-change: transform;
+}
+/* Framer bakes a no-op identity transform onto this fixed wrapper; any
+   non-"none" transform creates a new stacking context that cuts off
+   backdrop-filter on nav children from the real page content behind it
+   (it can then only blur within its own empty local context). Since we
+   don't rely on Framer's JS to touch this transform, clearing it to the
+   literal "none" keyword restores real background blur. */
+.framer-dpe114-container {
+  transform: none !important;
+}
+html.nav-hidden .framer-dpe114-container {
+  transform: translateY(-120%) !important;
+}
+html.nav-hidden .framer-dpe114-container {
+  transform: translateY(-120%);
+}
