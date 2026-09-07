@@ -17,18 +17,13 @@
 }
 
 /* Text/button treatment to match the upload-illustration reference:
-   bold white headline, muted light subtext, gradient pill CTA.
-   Extra-specific selectors (html.theme-light prefix) needed to beat the
-   same-specificity light-theme overrides in theme.css. */
-html.theme-light .framer-kl79kt .framer-styles-preset-mnfyzd,
+   bold white headline, muted light subtext, gradient pill CTA. */
 .framer-kl79kt .framer-styles-preset-mnfyzd {
   color: #ffffff !important;
 }
-html.theme-light .framer-kl79kt .framer-styles-preset-1xv0u9n,
 .framer-kl79kt .framer-styles-preset-1xv0u9n {
   color: rgba(255,255,255,0.85) !important;
 }
-html.theme-light .framer-kl79kt .framer-6yhlt6,
 .framer-kl79kt .framer-6yhlt6 {
   background: linear-gradient(135deg, #ffab5c, #4f7fff) !important;
   border-color: rgba(255,255,255,0.5) !important;
@@ -38,8 +33,6 @@ html.theme-light .framer-kl79kt .framer-6yhlt6,
   padding: 14px 24px !important;
   min-width: 0 !important;
 }
-html.theme-light .framer-kl79kt .framer-6yhlt6 .imp-rtext,
-html.theme-light .framer-kl79kt .framer-6yhlt6 p,
 .framer-kl79kt .framer-6yhlt6 .imp-rtext,
 .framer-kl79kt .framer-6yhlt6 p {
   color: #ffffff !important;

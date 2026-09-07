@@ -1,14 +1,14 @@
-/* ===== Light theme override =====
-   The dark theme is the default (values baked into the Framer export as
-   inline var(--token-XXXX, fallback) declarations). Adding .theme-light on
-   <html> redefines the same custom properties, so every element that
-   already reads var(--token-XXXX, ...) picks up the light value for free. */
-/* Targets "html.theme-light body" (not just html.theme-light) because the
-   Framer export has its own `body{--token-XXXX:#000;...}` rule that
-   redeclares these same custom properties directly on body — that local
-   redeclaration shadows anything set higher up on <html>, so the override
-   has to sit at the body level (or lower) to actually win the cascade. */
-html.theme-light body {
+/* ===== Light theme (permanent, only theme) =====
+   The Framer export was built dark by default (values baked in as
+   inline var(--token-XXXX, dark-fallback) declarations). These rules
+   redefine the same custom properties unconditionally, so every element
+   that reads var(--token-XXXX, ...) picks up the light value. */
+/* Targets "body" directly (not :root/html) because the Framer export has
+   its own `body{--token-XXXX:#000;...}` rule that redeclares these same
+   custom properties on body — that local redeclaration shadows anything
+   set higher up on <html>, so the override has to sit at the body level
+   (or lower) to actually win the cascade. */
+body {
   --token-74e333f8-fe87-4945-af87-cae5b7e16c10: #ffffff; /* surfaces: was black */
   --token-839225cb-b1fc-470d-a0c2-2eb7fcc590b8: #0a0a0a; /* primary text: was white */
   --token-118587f4-0ede-44b6-a609-249caf227711: #6e6e73; /* icons/labels: was rgb(204,204,204) */
@@ -19,12 +19,12 @@ html.theme-light body {
   --token-f8eb999f-285c-4229-9c3a-c69e8052e994: #f2f2f4; /* was rgb(6,7,10) */
   --token-63f7583a-ac58-4fab-bed6-928aed613254: #d8dce6; /* was rgb(47,57,80) */
   --token-cef4d4a6-9e30-47e6-bc76-f952a48770af: #eceef2; /* was rgb(12,15,22) */
+  background: #ffffff !important;
 }
-html.theme-light body { background: #ffffff !important; }
 
 /* Logo is a white-on-transparent PNG (mexum-logo-white.png) — invisible on
    a white page, so recolor it to black instead of swapping the image. */
-html.theme-light .framer-1yvwb09 img {
+.framer-1yvwb09 img {
   filter: brightness(0);
 }
 
@@ -32,81 +32,36 @@ html.theme-light .framer-1yvwb09 img {
    tuned as white-on-dark — on a white page that tint is invisible even
    though backdrop-filter blur is genuinely active, so the pill just reads
    as flat white instead of frosted glass. Swap to a dark-tinted glass. */
-html.theme-light .framer-199y88y {
+.framer-199y88y {
   background: linear-gradient(180deg, rgba(0,0,0,0.06), rgba(0,0,0,0.02)) !important;
   box-shadow:
     inset 0 1px 1px rgba(255,255,255,0.6),
     inset 0 -1px 6px rgba(0,0,0,0.05),
     0 8px 32px rgba(0,0,0,0.12) !important;
 }
-html.theme-light .framer-199y88y:hover {
+.framer-199y88y:hover {
   box-shadow:
     inset 0 1px 1px rgba(255,255,255,0.8),
     inset 0 -1px 8px rgba(0,0,0,0.08),
     0 10px 40px rgba(0,0,0,0.16) !important;
 }
-html.theme-light .framer-6yhlt6 {
+.framer-6yhlt6 {
   background: rgba(0,0,0,0.05) !important;
 }
 
 /* Hardcoded (non-token) text presets baked into the Framer export —
    these don't read var(--token-...) so they need direct overrides. */
-html.theme-light .framer-styles-preset-1p9z0bc,   /* nav links */
-html.theme-light .framer-styles-preset-79ayo0,    /* button labels (Личный кабинет, Загрузить документ, Начать проверку) */
-html.theme-light .framer-styles-preset-1ucu1n1,   /* hero headline */
-html.theme-light .framer-styles-preset-kng7jv,    /* hero body */
-html.theme-light .framer-styles-preset-mnfyzd,    /* section headline */
-html.theme-light .framer-styles-preset-1xv0u9n,   /* tab labels / section subtext */
-html.theme-light .framer-styles-preset-1c78dmg,   /* panel headline */
-html.theme-light .framer-styles-preset-1pjo9hs {  /* step titles */
+.framer-styles-preset-1p9z0bc,   /* nav links */
+.framer-styles-preset-79ayo0,    /* button labels (Личный кабинет, Загрузить документ, Начать проверку) */
+.framer-styles-preset-1ucu1n1,   /* hero headline */
+.framer-styles-preset-kng7jv,    /* hero body */
+.framer-styles-preset-mnfyzd,    /* section headline */
+.framer-styles-preset-1xv0u9n,   /* tab labels / section subtext */
+.framer-styles-preset-1c78dmg,   /* panel headline */
+.framer-styles-preset-1pjo9hs {  /* step titles */
   color: #0a0a0a !important;
 }
-html.theme-light .framer-styles-preset-t2rmki,    /* muted body text */
-html.theme-light .framer-styles-preset-1pu1sul {  /* footer text */
+.framer-styles-preset-t2rmki,    /* muted body text */
+.framer-styles-preset-1pu1sul {  /* footer text */
   color: #5a6478 !important;
-}
-
-/* ===== Liquid-glass theme switch ===== */
-.theme-switch {
-  border: none;
-  background: none;
-  padding: 0;
-  cursor: pointer;
-  flex-shrink: 0;
-  margin-right: 12px;
-  -webkit-tap-highlight-color: transparent;
-}
-.theme-switch__track {
-  display: block;
-  width: 52px;
-  height: 30px;
-  border-radius: 999px;
-  background: rgba(255,255,255,0.12);
-  backdrop-filter: blur(12px) saturate(1.6);
-  -webkit-backdrop-filter: blur(12px) saturate(1.6);
-  border: 1px solid rgba(255,255,255,0.25);
-  box-shadow: inset 0 1px 1px rgba(255,255,255,0.4), inset 0 -1px 4px rgba(0,0,0,0.25);
-  position: relative;
-  transition: background 0.3s ease, border-color 0.3s ease;
-}
-.theme-switch__knob {
-  position: absolute;
-  top: 3px;
-  left: 3px;
-  width: 24px;
-  height: 24px;
-  border-radius: 50%;
-  background: linear-gradient(145deg, #ffffff, #d8d8dc);
-  box-shadow: 0 2px 6px rgba(0,0,0,0.35), inset 0 1px 1px rgba(255,255,255,0.8);
-  transition: transform 0.35s cubic-bezier(.2,.8,.2,1);
-}
-html.theme-light .theme-switch__track {
-  background: rgba(0,0,0,0.08);
-  border-color: rgba(0,0,0,0.15);
-  box-shadow: inset 0 1px 1px rgba(255,255,255,0.6), inset 0 -1px 4px rgba(0,0,0,0.08);
-}
-html.theme-light .theme-switch__knob {
-  transform: translateX(22px);
-  background: linear-gradient(145deg, #2b2b30, #0a0a0a);
-  box-shadow: 0 2px 6px rgba(0,0,0,0.25), inset 0 1px 1px rgba(255,255,255,0.15);
 }
