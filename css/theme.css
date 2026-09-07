@@ -8,7 +8,7 @@
    custom properties on body — that local redeclaration shadows anything
    set higher up on <html>, so the override has to sit at the body level
    (or lower) to actually win the cascade. */
-body {
+html body {
   --token-74e333f8-fe87-4945-af87-cae5b7e16c10: #ffffff; /* surfaces: was black */
   --token-839225cb-b1fc-470d-a0c2-2eb7fcc590b8: #0a0a0a; /* primary text: was white */
   --token-118587f4-0ede-44b6-a609-249caf227711: #6e6e73; /* icons/labels: was rgb(204,204,204) */
