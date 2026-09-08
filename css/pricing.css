@@ -54,10 +54,10 @@
   white-space: nowrap;
 }
 .pricing-tag--solid {
-  background: rgba(10, 10, 10, 0.92);
+  background: var(--glass-fill);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-  box-shadow: rgba(255, 255, 255, 0.08) 0px 0px 0px 1px inset;
+  box-shadow: var(--glass-shadow-sm);
   color: #fff;
 }
 .pricing-tag--outline { border: 1px solid #e2e2e2; color: #6e6e73; }
@@ -131,14 +131,14 @@
   margin-top: 16px;
   border-radius: 999px;
   border: none;
-  background: rgba(10, 10, 10, 0.92);
+  background: var(--glass-fill);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-  box-shadow: rgba(255, 255, 255, 0.08) 0px 0px 0px 1px inset, rgba(255, 255, 255, 0.05) 0px 0px 20px inset;
+  box-shadow: var(--glass-shadow);
   color: #fff;
   font-size: 14px;
   font-weight: 600;
   cursor: pointer;
   text-decoration: none;
 }
-.pricing-card__cta:hover { background: rgba(30, 30, 30, 0.95); }
+.pricing-card__cta:hover { background: var(--glass-fill-hover); }
