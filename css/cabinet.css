@@ -592,6 +592,74 @@ html, body {
 .cab-nav-item__badge--active { background: rgba(52, 199, 89, 0.16); color: #1e8e3e; }
 .cab-nav-item.is-active .cab-nav-item__badge--active { background: rgba(52, 199, 89, 0.28); color: #fff; }
 
+/* ===== Баннер с dialedweb.com — вставлен как есть (классы/эффекты 1:1),
+   только position/width адаптированы под встраивание в сайдбар вместо
+   плавающего оверлея на весь экран. ===== */
+.cookies-popup {
+  position: static;
+  width: 100%;
+  height: fit-content;
+  background-color: rgba(0, 0, 0, 0.024);
+  box-shadow: rgba(0, 0, 0, 0.075) 0px 0px 0px 1px inset, rgba(0, 0, 0, 0.05) 0px 0px 45px inset;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  padding: 18px;
+  gap: 12px;
+  transition: opacity 0.5s;
+  border-radius: 15px;
+}
+.fade-out-cookies { opacity: 0; pointer-events: none; }
+.cookies-underlined { text-decoration: underline; cursor: pointer; }
+/* Инверсия под светлый фон (у dialedweb — белый текст на тёмном): те же
+   классы/структура/эффекты, только rgb(255,255,255,..) -> rgb(0,0,0,..). */
+.white { color: rgb(10, 10, 10); }
+.grey { color: rgba(10, 10, 10, 0.55); }
+.small-subheadline {
+  font-family: "SF Pro Display", -apple-system, sans-serif;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 100%;
+  margin: 0;
+}
+.small-description {
+  font-family: "SF Pro Text", -apple-system, sans-serif;
+  font-weight: 400;
+  font-size: 13px;
+  margin: 0;
+}
+.button, .button-circle { display: flex; align-items: center; justify-content: center; position: relative; }
+.button {
+  width: fit-content;
+  height: fit-content;
+  padding: 8px 8px 8px 16px;
+  border-radius: 999px;
+  cursor: pointer;
+  z-index: 2;
+  gap: 16px;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  background-color: rgba(0, 0, 0, 0.03);
+  color: rgb(10, 10, 10);
+  box-shadow: rgba(0, 0, 0, 0.08) 0px 0px 16px inset;
+}
+.button-content {
+  transition: 0.5s;
+  cursor: pointer;
+  height: fit-content;
+  overflow: hidden;
+  position: relative;
+  width: fit-content;
+  text-decoration: none;
+  user-select: none;
+}
+.button span { display: block; transition: transform 0.75s cubic-bezier(0.19, 1, 0.22, 1); }
+.button span:nth-child(2) { position: absolute; }
+.button:hover span:first-child,
+.button:hover span:nth-child(2) { transform: translateY(-100%); }
+.cookies-button { width: 100%; padding: 8px 16px; }
+
 /* Выбранная карточка тарифа (общая для вкладки и модалки) */
 .pricing-card--active { border-color: #34c759; }
 .pricing-card__cta:disabled {
