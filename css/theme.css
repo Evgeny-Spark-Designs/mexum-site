@@ -19,7 +19,13 @@ html body {
   --token-f8eb999f-285c-4229-9c3a-c69e8052e994: #f2f2f4; /* was rgb(6,7,10) */
   --token-63f7583a-ac58-4fab-bed6-928aed613254: #d8dce6; /* was rgb(47,57,80) */
   --token-cef4d4a6-9e30-47e6-bc76-f952a48770af: #eceef2; /* was rgb(12,15,22) */
-  background: #ffffff !important;
+  background:
+    radial-gradient(1100px circle at 12% 4%, rgba(79,127,255,0.05), transparent 55%),
+    radial-gradient(900px circle at 88% 22%, rgba(255,171,92,0.045), transparent 55%),
+    radial-gradient(1100px circle at 20% 55%, rgba(90,100,120,0.035), transparent 55%),
+    radial-gradient(1000px circle at 82% 78%, rgba(79,127,255,0.04), transparent 55%),
+    radial-gradient(900px circle at 15% 98%, rgba(255,171,92,0.035), transparent 55%),
+    #ffffff !important;
 }
 
 /* Logo is a white-on-transparent PNG (mexum-logo-white.png) — invisible on
