@@ -36,9 +36,6 @@
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
 }
-.pricing-card--featured {
-  border: 2px solid #0a0a0a;
-}
 .pricing-card__tags {
   display: flex;
   flex-wrap: wrap;

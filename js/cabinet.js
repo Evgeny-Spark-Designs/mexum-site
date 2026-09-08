@@ -17,6 +17,16 @@
     });
   });
 
+  // ---- Dismiss the privacy banner (same fade-out-cookies class as the source) ----
+  var cookiesPopup = document.querySelector('.cookies-popup');
+  var cookiesAccept = document.querySelector('.cookies-button');
+  if (cookiesPopup && cookiesAccept) {
+    cookiesAccept.addEventListener('click', function () {
+      cookiesPopup.classList.add('fade-out-cookies');
+      setTimeout(function () { cookiesPopup.hidden = true; }, 500);
+    });
+  }
+
   // ---- Chat thread switching ----
   var CHATS = {
     lesnoy: {

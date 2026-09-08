@@ -662,6 +662,7 @@ html, body {
   border-radius: 15px;
 }
 .fade-out-cookies { opacity: 0; pointer-events: none; }
+.cookies-popup[hidden] { display: none !important; }
 .cookies-underlined { text-decoration: underline; cursor: pointer; }
 /* Инверсия под светлый фон (у dialedweb — белый текст на тёмном): те же
    классы/структура/эффекты, только rgb(255,255,255,..) -> rgb(0,0,0,..). */
@@ -714,7 +715,7 @@ html, body {
 .cookies-button { width: 100%; padding: 8px 16px; }
 
 /* Выбранная карточка тарифа (общая для вкладки и модалки) */
-.pricing-card--active { border-color: #34c759; }
+.pricing-card--active { border: 2px solid #34c759; }
 .pricing-card__cta:disabled {
   background: #ececec;
   backdrop-filter: none;
