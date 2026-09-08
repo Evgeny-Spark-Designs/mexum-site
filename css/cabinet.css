@@ -542,3 +542,50 @@ html, body {
 .cab-modal__body .pricing-section__eyebrow { margin-top: 24px; }
 .cab-modal__grid.pricing-grid { grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
 .cab-modal__grid .pricing-card { padding: 20px; }
+
+/* ===== Вкладка «Тарифы» — статус текущего тарифа ===== */
+.cab-tariff-status {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  border: 1px solid #ececec;
+  border-radius: 16px;
+  padding: 20px 24px;
+  background: #fafafa;
+}
+.cab-tariff-status__label { font-size: 16px; font-weight: 600; margin: 0 0 4px; }
+.cab-tariff-status__desc { font-size: 13px; color: #6e6e73; margin: 0; }
+.cab-tariff-status__badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 7px 14px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 700;
+  background: #ececec;
+  color: #6e6e73;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.cab-tariff-status__badge--active { background: #0a0a0a; color: #fff; }
+.cab-tariff-status__badge--active::before {
+  content: "";
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #34c759;
+  margin-right: 7px;
+}
+.cab-nav-item__badge--active { background: rgba(52, 199, 89, 0.16); color: #1e8e3e; }
+.cab-nav-item.is-active .cab-nav-item__badge--active { background: rgba(52, 199, 89, 0.28); color: #fff; }
+
+/* Выбранная карточка тарифа (общая для вкладки и модалки) */
+.pricing-card--active { border-color: #34c759; }
+.pricing-card__cta:disabled {
+  background: #ececec;
+  color: #9a9a9e;
+  cursor: default;
+}
+.pricing-card__cta:disabled:hover { background: #ececec; }

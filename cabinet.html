@@ -171,6 +171,9 @@
       <button type="button" class="cab-nav-item" data-view="upload">
         <span>Загрузить документы</span>
       </button>
+      <button type="button" class="cab-nav-item" data-view="tariffs">
+        <span>Тарифы</span><span class="cab-nav-item__badge" data-tariff-nav-badge>Не активен</span>
+      </button>
       <button type="button" class="cab-nav-item" data-view="docs">
         <span>Документы и отчёты</span>
       </button>
@@ -313,6 +316,158 @@
           <input type="file" id="cabUploadInput" multiple style="display:none">
           <button type="button" class="cab-btn cab-btn--solid" data-cab-upload-trigger>Выбрать файлы</button>
           <div data-cab-upload-status style="font-size:13px;color:#6e6e73;"></div>
+        </div>
+      </section>
+
+      <!-- ===== Тарифы ===== -->
+      <section class="cab-view" data-view="tariffs">
+        <div class="cab-view__head" style="margin-bottom:22px;">
+          <h1>Тарифы</h1>
+        </div>
+
+        <div class="cab-tariff-status">
+          <div>
+            <p class="cab-tariff-status__label" data-tariff-status-label>Тариф не подключён</p>
+            <p class="cab-tariff-status__desc" data-tariff-status-desc>Выберите тариф ниже — он понадобится перед загрузкой документов.</p>
+          </div>
+          <span class="cab-tariff-status__badge" data-tariff-status-badge>Не активен</span>
+        </div>
+
+        <p class="pricing-section__eyebrow" style="margin-top:32px;">Разовый аудит по разделам</p>
+        <div class="pricing-grid">
+          <div class="pricing-card">
+            <div class="pricing-card__tags">
+              <span class="pricing-tag pricing-tag--solid">ПД / РД</span>
+              <span class="pricing-tag--time">48ч</span>
+            </div>
+            <h3 class="pricing-card__name">Аудит проектно-сметной документации</h3>
+            <ul class="pricing-card__features">
+              <li>АР, КР, КЖ, КМ, ОВ, ЭОМ, СС, ТХ, ПОС</li>
+              <li>Сверка разделов, узлы, нагрузки</li>
+              <li>СП, ГОСТ, 87-е постановление</li>
+              <li>Протокол + ведомость + отчёт</li>
+            </ul>
+            <div class="pricing-card__price-row">
+              <div class="pricing-card__price">
+                <span class="pricing-card__price-from">от</span>
+                <span class="pricing-card__price-value">35 000</span>
+                <span class="pricing-card__price-unit">₽ / раздел</span>
+              </div>
+              <p class="pricing-card__price-note">от 120 000 ₽ / комплект • Протокол + ведомость</p>
+            </div>
+            <button type="button" class="pricing-card__cta" data-tariff-select data-tariff-name="Аудит ПД / РД">Выбрать</button>
+          </div>
+
+          <div class="pricing-card pricing-card--featured">
+            <div class="pricing-card__tags">
+              <span class="pricing-tag pricing-tag--solid">СД</span>
+              <span class="pricing-tag pricing-tag--outline">Чаще выбирают</span>
+            </div>
+            <h3 class="pricing-card__name">Аудит сметной документации</h3>
+            <ul class="pricing-card__features">
+              <li>ФЕР / ТЕР / ТСН / ГЭСН • Гранд-Смета</li>
+              <li>Конъюнктурка, прайсы, КП</li>
+              <li>Завышения, дубли, объёмы</li>
+              <li>Протокол завышений в Excel</li>
+            </ul>
+            <div class="pricing-card__price-row">
+              <div class="pricing-card__price">
+                <span class="pricing-card__price-from">от</span>
+                <span class="pricing-card__price-value">25 000</span>
+                <span class="pricing-card__price-unit">₽ / проект</span>
+              </div>
+              <p class="pricing-card__price-note">до 0.8% от сметы • Excel</p>
+            </div>
+            <button type="button" class="pricing-card__cta" data-tariff-select data-tariff-name="Аудит СД">Выбрать</button>
+          </div>
+
+          <div class="pricing-card">
+            <div class="pricing-card__tags">
+              <span class="pricing-tag pricing-tag--solid">ИД</span>
+              <span class="pricing-tag--time">от 24ч</span>
+            </div>
+            <h3 class="pricing-card__name">Аудит исполнительной документации</h3>
+            <ul class="pricing-card__features">
+              <li>АОСР / АОВР / АОУК</li>
+              <li>Журналы ОЖ, АЖ, БЖ</li>
+              <li>Исп. схемы, геодезия</li>
+              <li>Комплект к сдаче без замечаний</li>
+            </ul>
+            <div class="pricing-card__price-row">
+              <div class="pricing-card__price">
+                <span class="pricing-card__price-from">от</span>
+                <span class="pricing-card__price-value">30 000</span>
+                <span class="pricing-card__price-unit">₽ / комплект</span>
+              </div>
+              <p class="pricing-card__price-note">800 ₽ / акт • Комплект к сдаче</p>
+            </div>
+            <button type="button" class="pricing-card__cta" data-tariff-select data-tariff-name="Аудит ИД">Выбрать</button>
+          </div>
+        </div>
+
+        <p class="pricing-section__eyebrow pricing-section__title--sub">Абонент • Для потока проектов</p>
+        <div class="pricing-grid">
+          <div class="pricing-card">
+            <div class="pricing-card__tags">
+              <span class="pricing-tag pricing-tag--solid">5 проектов</span>
+            </div>
+            <h3 class="pricing-card__name">Тариф «Старт»</h3>
+            <ul class="pricing-card__features">
+              <li>5 проектов в месяц</li>
+              <li>Разбор замечаний в ЛК</li>
+              <li>Чат с заказчиком в ЛК</li>
+              <li>Отчёт аудита</li>
+            </ul>
+            <div class="pricing-card__price-row">
+              <div class="pricing-card__price">
+                <span class="pricing-card__price-value">90 000</span>
+                <span class="pricing-card__price-unit">₽ / мес</span>
+              </div>
+              <p class="pricing-card__price-note">Фиксированная цена • По оферте</p>
+            </div>
+            <button type="button" class="pricing-card__cta" data-tariff-select data-tariff-name="Тариф «Старт»">Подключить</button>
+          </div>
+
+          <div class="pricing-card pricing-card--featured">
+            <div class="pricing-card__tags">
+              <span class="pricing-tag pricing-tag--solid">15 проектов</span>
+              <span class="pricing-tag pricing-tag--outline">Популярный</span>
+            </div>
+            <h3 class="pricing-card__name">Тариф «Бизнес»</h3>
+            <ul class="pricing-card__features">
+              <li>15 проектов в месяц</li>
+              <li>Сопровождение в ЛК 24ч</li>
+              <li>Приоритет в очереди</li>
+            </ul>
+            <div class="pricing-card__price-row">
+              <div class="pricing-card__price">
+                <span class="pricing-card__price-value">220 000</span>
+                <span class="pricing-card__price-unit">₽ / мес</span>
+              </div>
+              <p class="pricing-card__price-note">Фиксированная цена • По оферте</p>
+            </div>
+            <button type="button" class="pricing-card__cta" data-tariff-select data-tariff-name="Тариф «Бизнес»">Подключить</button>
+          </div>
+
+          <div class="pricing-card">
+            <div class="pricing-card__tags">
+              <span class="pricing-tag pricing-tag--solid">Безлимит</span>
+            </div>
+            <h3 class="pricing-card__name">Тариф «Профи»</h3>
+            <ul class="pricing-card__features">
+              <li>Безлимит проектов</li>
+              <li>Приоритет в очереди</li>
+              <li>Выделенный менеджер</li>
+            </ul>
+            <div class="pricing-card__price-row">
+              <div class="pricing-card__price">
+                <span class="pricing-card__price-value">450 000</span>
+                <span class="pricing-card__price-unit">₽ / мес</span>
+              </div>
+              <p class="pricing-card__price-note">Фиксированная цена • По оферте</p>
+            </div>
+            <button type="button" class="pricing-card__cta" data-tariff-select data-tariff-name="Тариф «Профи»">Подключить</button>
+          </div>
         </div>
       </section>
 

@@ -160,14 +160,51 @@
     if (cancelled && input) input.value = '';
   }
 
+  // Reflects the active tariff everywhere it's shown: nav badge, the
+  // dedicated "Тарифы" tab status card, and every matching card/button
+  // (both there and inside the mandatory-selection modal).
+  var tariffStatusLabel = document.querySelector('[data-tariff-status-label]');
+  var tariffStatusDesc = document.querySelector('[data-tariff-status-desc]');
+  var tariffStatusBadge = document.querySelector('[data-tariff-status-badge]');
+  var tariffNavBadge = document.querySelector('[data-tariff-nav-badge]');
+
+  function applyTariffState() {
+    tariffButtons.forEach(function (btn) {
+      var isActive = hasActivePlan && btn.getAttribute('data-tariff-name') === activePlanName;
+      var card = btn.closest('.pricing-card');
+      if (card) card.classList.toggle('pricing-card--active', isActive);
+      btn.disabled = isActive;
+      btn.textContent = isActive ? 'Подключено' : btn.getAttribute('data-tariff-label');
+    });
+    if (tariffStatusLabel) {
+      tariffStatusLabel.textContent = hasActivePlan ? 'Активный тариф: ' + activePlanName : 'Тариф не подключён';
+    }
+    if (tariffStatusDesc) {
+      tariffStatusDesc.textContent = hasActivePlan
+        ? 'Подключён • Оплата по оферте • Загрузка документов доступна'
+        : 'Выберите тариф ниже — он понадобится перед загрузкой документов.';
+    }
+    if (tariffStatusBadge) {
+      tariffStatusBadge.textContent = hasActivePlan ? 'Активен' : 'Не активен';
+      tariffStatusBadge.classList.toggle('cab-tariff-status__badge--active', hasActivePlan);
+    }
+    if (tariffNavBadge) {
+      tariffNavBadge.textContent = hasActivePlan ? 'Активен' : 'Не активен';
+      tariffNavBadge.classList.toggle('cab-nav-item__badge--active', hasActivePlan);
+    }
+  }
+
   tariffButtons.forEach(function (btn) {
+    btn.setAttribute('data-tariff-label', btn.textContent);
     btn.addEventListener('click', function () {
       hasActivePlan = true;
       activePlanName = btn.getAttribute('data-tariff-name') || '';
       closeTariffModal(false);
       showStatus();
+      applyTariffState();
     });
   });
+  applyTariffState();
 
   if (modalClose) {
     modalClose.addEventListener('click', function () { closeTariffModal(true); });
