@@ -1,0 +1,14 @@
+/* The three "Screens" feature cards (feature-01/02/03: Противоречия /
+   Завышения / Исполнительная риски) sit next to a sticky tab list inside
+   a max-width:1200px centered container, leaving a gap before the
+   section's own right edge on tablet/desktop. js/feature-bleed.js
+   measures that gap at runtime (it's a fraction of a flex row shared
+   with the tab list, not a fixed proportion of the container, so a
+   pure-CSS calc() can't get it right), pulls the card out to the
+   section's padding edge via a negative right margin, and marks it
+   with .bleed-right — only then do the right corners square off, so a
+   card never renders square without actually reaching the edge. */
+.framer-JNpes.bleed-right {
+  border-top-right-radius: 0 !important;
+  border-bottom-right-radius: 0 !important;
+}

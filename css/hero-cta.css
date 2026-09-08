@@ -1,0 +1,24 @@
+/* "Начать проверку" hero button: its wrapper (.framer-41uz16) is a shared
+   Framer class capped at max-width:310px for paragraph text elsewhere on
+   the page, which also squeezed this button to an auto-width pill. Make
+   it fill the column and center its label. Scoped by ancestor so other
+   .framer-41uz16 text blocks are untouched. */
+.framer-17tbosj .framer-41uz16 {
+  max-width: 100% !important;
+  width: 100% !important;
+}
+.btn-start-check {
+  width: 100% !important;
+  display: flex !important;
+  justify-content: center !important;
+}
+.btn-start-check .framer-6yhlt6 {
+  width: 100% !important;
+  justify-content: center !important;
+}
+
+/* Decorative eyebrow line above the heading (empty icon slot + a hairline)
+   reads as a stray divider between this section and the tabs below it. */
+.framer-170n5sr .framer-gd6ur-container {
+  display: none !important;
+}

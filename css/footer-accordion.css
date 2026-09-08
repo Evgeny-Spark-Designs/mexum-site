@@ -1,0 +1,67 @@
+/* "Работаем на стыке ИИ и экспертизы..." paragraph was hardcoded
+   white-on-60%-opacity for the original dark footer; on the light theme
+   that's invisible white-on-white, reading as a large empty gap. */
+footer .framer-qf22bw p {
+  color: rgba(10, 10, 10, 0.6) !important;
+}
+
+/* Footer link columns on mobile/tablet.
+   The export's own "mobile" layout for these columns (flex-direction:column)
+   lives under an unused variant class (framer-v-xi8p8l) that never gets
+   applied — there is no Framer runtime JS in this export to swap variant
+   classes on resize — so we reproduce it here and add an accordion on top. */
+@media (max-width: 809.98px) {
+  .framer-1xspn8w {
+    flex-direction: column !important;
+    gap: 0 !important;
+    width: 100% !important;
+  }
+  .framer-xvb52d,
+  .framer-coer0y,
+  .framer-1thy2j1 {
+    width: 100% !important;
+  }
+
+  .footer-accordion-col {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+  }
+  .footer-accordion-col:first-child {
+    border-top: 1px solid rgba(0, 0, 0, 0.12);
+  }
+
+  .footer-accordion-title {
+    cursor: pointer;
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    text-align: left !important;
+    width: 100%;
+    padding: 18px 0;
+  }
+  .footer-accordion-title::after {
+    content: "";
+    width: 8px;
+    height: 8px;
+    border-right: 1.5px solid currentColor;
+    border-bottom: 1.5px solid currentColor;
+    transform: rotate(45deg);
+    transition: transform 0.2s ease;
+    opacity: 0.5;
+    flex-shrink: 0;
+    margin-left: 12px;
+  }
+  .footer-accordion-col.is-open .footer-accordion-title::after {
+    transform: rotate(-135deg);
+  }
+
+  .footer-accordion-nav {
+    max-height: 0 !important;
+    overflow: hidden !important;
+    transition: max-height 0.25s ease;
+  }
+  .footer-accordion-col.is-open .footer-accordion-nav {
+    max-height: 320px !important;
+    padding-bottom: 20px;
+  }
+}

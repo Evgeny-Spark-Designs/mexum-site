@@ -17,6 +17,13 @@ figure.panel-img-wide {
   height: 100% !important;
   width: auto !important;
   aspect-ratio: 1254 / 1254 !important;
+  border-radius: 24px !important;
+}
+
+@media (max-width: 1199.98px) {
+  figure.panel-img-wide {
+    border-radius: 0 0 24px 24px !important;
+  }
 }
 /* Soft fade only on the outer left edge so the card background blends
    into the photo without touching the "01" callout, which starts close
