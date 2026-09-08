@@ -75,3 +75,26 @@ html body {
 .framer-styles-preset-1pu1sul {  /* footer text */
   color: #5a6478 !important;
 }
+
+/* The "Завышения"/"Риски" panel photos use a fixed-pixel transform:scale
+   (tuned for wide desktop) with overflow:visible so the photo can bleed
+   past its frame on purpose. That fixed scale doesn't shrink with the
+   card at narrower widths, so on tablet/phone the photo overflowed by
+   300px+ and painted over the card's own text. Below desktop, drop back
+   to a plain non-overflowing cover fit. */
+@media (max-width: 1199.98px) {
+  img[src*="panel-estimate-overcharges.png"],
+  img[src*="panel-executive-risks.png"] {
+    position: static !important;
+    top: auto !important;
+    right: auto !important;
+    width: 100% !important;
+    height: 100% !important;
+    max-width: 100% !important;
+    transform: none !important;
+    object-fit: cover !important;
+  }
+  figure.framer-1q2kqkh {
+    overflow: hidden !important;
+  }
+}
