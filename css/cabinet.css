@@ -491,8 +491,62 @@ html, body {
 .cab-simple-row:last-child { border-bottom: none; }
 .cab-simple-row__meta { color: #9a9a9e; font-size: 12px; margin-top: 2px; }
 
+/* ===== Mobile sidebar toggle (hamburger) ===== */
+.cab-sidebar-toggle {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid #e2e2e2;
+  background: #fff;
+  cursor: pointer;
+  flex-shrink: 0;
+  padding: 0;
+}
+.cab-sidebar-toggle__bars { position: relative; width: 16px; height: 11px; }
+.cab-sidebar-toggle__bars span {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  border-radius: 2px;
+  background: #0a0a0a;
+  transition: transform 0.2s ease, opacity 0.2s ease, top 0.2s ease;
+}
+.cab-sidebar-toggle__bars span:nth-child(1) { top: 0; }
+.cab-sidebar-toggle__bars span:nth-child(2) { top: 4.5px; }
+.cab-sidebar-toggle__bars span:nth-child(3) { top: 9px; }
+.cab-sidebar-toggle.is-open .cab-sidebar-toggle__bars span:nth-child(1) { top: 4.5px; transform: rotate(45deg); }
+.cab-sidebar-toggle.is-open .cab-sidebar-toggle__bars span:nth-child(2) { opacity: 0; }
+.cab-sidebar-toggle.is-open .cab-sidebar-toggle__bars span:nth-child(3) { top: 4.5px; transform: rotate(-45deg); }
+
+.cab-sidebar-backdrop {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(10, 10, 10, 0.4);
+  z-index: 150;
+}
+.cab-sidebar-backdrop.is-open { display: block; }
+.cab-sidebar-backdrop[hidden] { display: none !important; }
+
 @media (max-width: 900px) {
-  .cab-sidebar { display: none; }
+  .cab-sidebar-toggle { display: inline-flex; }
+  .cab-sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 280px;
+    max-width: 82vw;
+    z-index: 160;
+    transform: translateX(-100%);
+    transition: transform 0.25s ease;
+    box-shadow: 8px 0 32px rgba(10, 10, 10, 0.16);
+  }
+  .cab-sidebar.is-open { transform: translateX(0); }
   .cab-chat { flex-direction: column; height: auto; }
   .cab-chat__list { width: 100%; border-right: none; border-bottom: 1px solid #ececec; }
 }

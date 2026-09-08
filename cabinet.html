@@ -149,6 +149,9 @@
 
   <header class="cab-topbar">
     <button type="button" class="cab-topbar__close" aria-label="Закрыть" onclick="location.href='index.html'">✕</button>
+    <button type="button" class="cab-sidebar-toggle" data-cab-sidebar-toggle aria-label="Открыть меню" aria-expanded="false">
+      <span class="cab-sidebar-toggle__bars"><span></span><span></span><span></span></span>
+    </button>
     <div class="cab-topbar__brand">
       <img class="cab-topbar__logo" src="images/mexum-logo-navy.png" alt="MeXum">
       <span class="cab-topbar__tag">ЛК</span>
@@ -160,6 +163,8 @@
       <a class="cab-btn cab-btn--solid" href="index.html">Выйти</a>
     </div>
   </header>
+
+  <div class="cab-sidebar-backdrop" data-cab-sidebar-backdrop hidden></div>
 
   <div class="cab-body">
     <nav class="cab-sidebar">

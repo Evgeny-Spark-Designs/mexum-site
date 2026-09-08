@@ -11,9 +11,33 @@
     });
   }
 
+  // ---- Mobile sidebar toggle (hamburger) ----
+  var sidebar = document.querySelector('.cab-sidebar');
+  var sidebarToggle = document.querySelector('[data-cab-sidebar-toggle]');
+  var sidebarBackdrop = document.querySelector('[data-cab-sidebar-backdrop]');
+
+  function setSidebarOpen(open) {
+    if (!sidebar || !sidebarToggle || !sidebarBackdrop) return;
+    sidebar.classList.toggle('is-open', open);
+    sidebarToggle.classList.toggle('is-open', open);
+    sidebarToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    sidebarBackdrop.hidden = !open;
+    sidebarBackdrop.classList.toggle('is-open', open);
+  }
+
+  if (sidebarToggle) {
+    sidebarToggle.addEventListener('click', function () {
+      setSidebarOpen(!sidebar.classList.contains('is-open'));
+    });
+  }
+  if (sidebarBackdrop) {
+    sidebarBackdrop.addEventListener('click', function () { setSidebarOpen(false); });
+  }
+
   navItems.forEach(function (item) {
     item.addEventListener('click', function () {
       showView(item.getAttribute('data-view'));
+      setSidebarOpen(false);
     });
   });
 
