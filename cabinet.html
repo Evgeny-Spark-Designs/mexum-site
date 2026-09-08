@@ -292,7 +292,8 @@
               </div>
             </div>
             <div class="cab-chat__composer">
-              <button type="button" class="cab-chat__composer-icon" aria-label="Прикрепить файл">📎</button>
+              <input type="file" id="chatAttachInput" style="display:none">
+              <button type="button" class="cab-chat__composer-icon" aria-label="Загрузить документ в чат" data-chat-attach-trigger>📎</button>
               <input type="text" placeholder="Напишите менеджеру…">
               <button type="button" class="cab-chat__composer-icon" aria-label="Отправить">➤</button>
             </div>
@@ -329,6 +330,10 @@
           <div>
             <p class="cab-tariff-status__label" data-tariff-status-label>Тариф не подключён</p>
             <p class="cab-tariff-status__desc" data-tariff-status-desc>Выберите тариф ниже — он понадобится перед загрузкой документов.</p>
+            <div class="cab-quota" data-tariff-quota hidden>
+              <div class="cab-quota__row" data-tariff-quota-text>Использовано 0 из 0 проектов</div>
+              <div class="cab-quota-bar"><div class="cab-quota-bar__fill" data-tariff-quota-fill style="width:0%"></div></div>
+            </div>
           </div>
           <span class="cab-tariff-status__badge" data-tariff-status-badge>Не активен</span>
         </div>

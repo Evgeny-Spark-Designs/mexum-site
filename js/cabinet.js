@@ -119,16 +119,48 @@
     }).join('');
   }
 
+  var currentChatId = 'lesnoy'; // matches the thread rendered by default
+
   var chatItems = document.querySelectorAll('.cab-chat-item[data-chat]');
   chatItems.forEach(function (item) {
     item.addEventListener('click', function () {
       var id = item.getAttribute('data-chat');
+      currentChatId = id;
       chatItems.forEach(function (c) { c.classList.remove('is-active'); });
       item.classList.add('is-active');
       renderChat(id);
       markRead(id);
     });
   });
+
+  function formatFileSize(bytes) {
+    if (bytes < 1024) return bytes + ' Б';
+    var kb = bytes / 1024;
+    if (kb < 1024) return kb.toFixed(1).replace('.0', '') + ' КБ';
+    return (kb / 1024).toFixed(1).replace('.0', '') + ' МБ';
+  }
+
+  // Attach-file button in the chat composer: pushes an outgoing message
+  // with a file attachment into the currently open chat thread.
+  var chatAttachInput = document.getElementById('chatAttachInput');
+  var chatAttachTrigger = document.querySelector('[data-chat-attach-trigger]');
+  if (chatAttachInput && chatAttachTrigger) {
+    chatAttachTrigger.addEventListener('click', function () { chatAttachInput.click(); });
+    chatAttachInput.addEventListener('change', function () {
+      var file = chatAttachInput.files && chatAttachInput.files[0];
+      var chat = CHATS[currentChatId];
+      if (!file || !chat) return;
+      chat.messages.push({
+        type: 'out',
+        text: 'Прикрепил документ.',
+        time: 'Сейчас',
+        file: file.name + ' • ' + formatFileSize(file.size)
+      });
+      renderChat(currentChatId);
+      if (messagesEl) messagesEl.scrollTop = messagesEl.scrollHeight;
+      chatAttachInput.value = '';
+    });
+  }
 
   // File picker wiring (same pattern as the landing page upload widget).
   var input = document.getElementById('cabUploadInput');
@@ -167,6 +199,19 @@
   var tariffStatusDesc = document.querySelector('[data-tariff-status-desc]');
   var tariffStatusBadge = document.querySelector('[data-tariff-status-badge]');
   var tariffNavBadge = document.querySelector('[data-tariff-nav-badge]');
+  var tariffQuota = document.querySelector('[data-tariff-quota]');
+  var tariffQuotaText = document.querySelector('[data-tariff-quota-text]');
+  var tariffQuotaFill = document.querySelector('[data-tariff-quota-fill]');
+
+  // Monthly project quota per subscription plan; one-off audits (ПД/РД, СД, ИД)
+  // aren't in this map, so they show no quota bar. "Used" is the project count
+  // from "Мои проекты" — the same real state the nav badge there is built from.
+  var TARIFF_QUOTAS = {
+    'Тариф «Старт»': 5,
+    'Тариф «Бизнес»': 15,
+    'Тариф «Профи»': Infinity
+  };
+  var usedProjects = document.querySelectorAll('.cab-table tbody tr').length;
 
   function applyTariffState() {
     tariffButtons.forEach(function (btn) {
@@ -191,6 +236,22 @@
     if (tariffNavBadge) {
       tariffNavBadge.textContent = hasActivePlan ? 'Активен' : 'Не активен';
       tariffNavBadge.classList.toggle('cab-nav-item__badge--active', hasActivePlan);
+    }
+    if (tariffQuota) {
+      var quota = hasActivePlan ? TARIFF_QUOTAS[activePlanName] : undefined;
+      tariffQuota.hidden = quota === undefined;
+      if (quota !== undefined && tariffQuotaText && tariffQuotaFill) {
+        if (quota === Infinity) {
+          tariffQuotaText.textContent = 'Использовано ' + usedProjects + ' проектов • Безлимит';
+          tariffQuotaFill.style.width = '100%';
+          tariffQuotaFill.classList.remove('cab-quota-bar__fill--full');
+        } else {
+          var remaining = Math.max(quota - usedProjects, 0);
+          tariffQuotaText.textContent = 'Использовано ' + usedProjects + ' из ' + quota + ' проектов • Осталось ' + remaining;
+          tariffQuotaFill.style.width = Math.min((usedProjects / quota) * 100, 100) + '%';
+          tariffQuotaFill.classList.toggle('cab-quota-bar__fill--full', usedProjects >= quota);
+        }
+      }
     }
   }
 
