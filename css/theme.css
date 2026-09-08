@@ -8,6 +8,20 @@
    custom properties on body — that local redeclaration shadows anything
    set higher up on <html>, so the override has to sit at the body level
    (or lower) to actually win the cascade. */
+/* This export has no Framer runtime JS at all (confirmed: only our own
+   nav-autohide/tab-underline/upload-hotspot scripts load), so the
+   scroll-triggered "fade/slide up into view" entrance animations Framer
+   normally plays never run. A handful of elements were captured
+   mid-animation at export time — stuck at their pre-reveal offset
+   (translateX/Y baked into an inline style) instead of settling at
+   transform:none like a completed reveal always would. Force them to
+   their finished position, at every breakpoint. */
+.framer-1v1hlbf-container,
+.framer-1g9kued-container,
+.framer-1r0lx73 {
+  transform: none !important;
+}
+
 html body {
   --token-74e333f8-fe87-4945-af87-cae5b7e16c10: #ffffff; /* surfaces: was black */
   --token-839225cb-b1fc-470d-a0c2-2eb7fcc590b8: #0a0a0a; /* primary text: was white */
@@ -82,6 +96,84 @@ html body {
    card at narrower widths, so on tablet/phone the photo overflowed by
    300px+ and painted over the card's own text. Below desktop, drop back
    to a plain non-overflowing cover fit. */
+/* This export has no Framer runtime JS (no script loads it — confirmed:
+   only our own nav-autohide/tab-underline/upload-hotspot scripts exist),
+   so the responsive variant-swapping Framer normally does at runtime
+   never happens. Every "feature panel" component (.framer-JNpes) is
+   frozen in whatever variant class was baked in at export time — the
+   desktop row layout — even though the correctly-authored mobile
+   "stack into one column" CSS rule for it is still sitting right there
+   in the stylesheet, just addressed to variant classes nothing ever
+   applies. This re-targets that same intended column layout onto the
+   shared base classes so it actually takes effect below desktop. */
+@media (max-width: 1199.98px) {
+  .framer-JNpes {
+    flex-direction: column !important;
+    width: 100% !important;
+    height: auto !important;
+  }
+  .framer-JNpes .framer-181v5l2 {
+    width: 100% !important;
+    aspect-ratio: 0.875 !important;
+    height: auto !important;
+    flex: none !important;
+    align-self: unset !important;
+  }
+  .framer-JNpes .framer-1yz5w5a {
+    flex: none !important;
+    width: 100% !important;
+    padding: 20px 20px 0 !important;
+  }
+  .framer-JNpes .framer-1cv3wx1 {
+    gap: 24px !important;
+  }
+  .framer-JNpes .framer-2d0w0r {
+    gap: 16px 12px !important;
+    max-width: none !important;
+  }
+
+  /* Same story, different repeating component: the "3 steps" process
+     cards (.framer-ZDn9o). */
+  .framer-ZDn9o {
+    flex-direction: column !important;
+    width: 100% !important;
+    gap: 32px !important;
+  }
+  .framer-ZDn9o .framer-1955mog {
+    flex: none !important;
+    width: 100% !important;
+    height: min-content !important;
+  }
+  .framer-ZDn9o .framer-1wmr65e {
+    flex: none !important;
+    width: 100% !important;
+    padding: 24px 24px 0 !important;
+  }
+  .framer-ZDn9o .framer-1wnk26 {
+    height: 331px !important;
+    flex: none !important;
+    width: 100% !important;
+  }
+}
+
+/* These Framer components use position:sticky so their text/tab column
+   stays pinned while an adjacent column scrolls past it — a desktop-only,
+   2-column pattern. The export is missing the usual breakpoint override
+   that resets this for narrower widths, where everything stacks into one
+   column: sticky then just floats over the content stacked below it,
+   causing exactly the overlap/"white screen" symptom reported. */
+@media (max-width: 1199.98px) {
+  .framer-1d69pvs,
+  .framer-1209mbl-container,
+  .framer-cqht81,
+  .framer-zx8cpx,
+  .framer-5y0zbm-container,
+  .framer-1x5hqty-container {
+    position: static !important;
+    top: auto !important;
+  }
+}
+
 @media (max-width: 1199.98px) {
   img[src*="panel-estimate-overcharges.png"],
   img[src*="panel-executive-risks.png"] {
