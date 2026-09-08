@@ -620,9 +620,10 @@ html, body {
 .small-subheadline {
   font-family: "SF Pro Display", -apple-system, sans-serif;
   font-weight: 600;
-  font-size: 18px;
-  line-height: 100%;
+  font-size: 14px;
+  line-height: 130%;
   margin: 0;
+  overflow-wrap: break-word;
 }
 .small-description {
   font-family: "SF Pro Text", -apple-system, sans-serif;
