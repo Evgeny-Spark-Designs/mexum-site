@@ -5,11 +5,14 @@
   /* Тёмное "стекло" — та же идея, что у баннера dialedweb (blur + подсветка
      по краю), плюс блик сверху и внешняя тень, чтобы эффект читался явно,
      а не терялся на белом фоне сайта. */
-  --glass-fill: linear-gradient(180deg, rgba(255, 255, 255, 0.22) 0%, rgba(255, 255, 255, 0) 60%), rgba(90, 90, 96, 0.75);
-  --glass-fill-hover: linear-gradient(180deg, rgba(255, 255, 255, 0.28) 0%, rgba(255, 255, 255, 0) 60%), rgba(108, 108, 114, 0.8);
-  --glass-border: rgba(255, 255, 255, 0.22);
-  --glass-shadow: rgba(255, 255, 255, 0.22) 0px 1px 0px 0px inset, rgba(255, 255, 255, 0.08) 0px 0px 24px inset, rgba(0, 0, 0, 0.2) 0px 8px 20px -8px;
-  --glass-shadow-sm: rgba(255, 255, 255, 0.22) 0px 1px 0px 0px inset, rgba(0, 0, 0, 0.15) 0px 2px 6px -2px;
+  /* Те же значения, что в баннере (.cookies-popup/.button): rgba(0,0,0,..)
+     вместо белого — 1:1, без своих добавлений (градиентов и т.п.). */
+  --glass-fill: rgba(0, 0, 0, 0.03);
+  --glass-fill-hover: rgba(0, 0, 0, 0.05);
+  --glass-border: rgba(0, 0, 0, 0.12);
+  --glass-shadow: rgba(0, 0, 0, 0.08) 0px 0px 16px inset;
+  --glass-shadow-sm: rgba(0, 0, 0, 0.08) 0px 0px 16px inset;
+  --glass-text: rgb(10, 10, 10);
 }
 html, body {
   margin: 0;
@@ -92,7 +95,7 @@ html, body {
   -webkit-backdrop-filter: blur(10px);
   border-color: var(--glass-border);
   box-shadow: var(--glass-shadow);
-  color: #fff;
+  color: var(--glass-text);
 }
 .cab-btn--solid:hover { background: var(--glass-fill-hover); }
 .cab-topbar__icon {
@@ -146,7 +149,7 @@ html, body {
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   box-shadow: var(--glass-shadow);
-  color: #fff;
+  color: var(--glass-text);
 }
 .cab-nav-item__badge {
   display: inline-flex;
@@ -162,8 +165,8 @@ html, body {
   font-weight: 700;
 }
 .cab-nav-item.is-active .cab-nav-item__badge {
-  background: rgba(255,255,255,0.2);
-  color: #fff;
+  background: rgba(0, 0, 0, 0.08);
+  color: var(--glass-text);
 }
 .cab-sidebar__spacer { flex: 1; }
 .cab-nav-item__badge[hidden],
@@ -246,7 +249,7 @@ html, body {
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   box-shadow: var(--glass-shadow-sm);
-  color: #fff;
+  color: var(--glass-text);
   font-size: 11px;
   font-weight: 700;
   text-align: center;
@@ -303,7 +306,7 @@ html, body {
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   box-shadow: var(--glass-shadow-sm);
-  color: #fff;
+  color: var(--glass-text);
   border-radius: 999px;
   font-size: 11px;
   font-weight: 700;
@@ -378,7 +381,7 @@ html, body {
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   box-shadow: var(--glass-shadow);
-  color: #fff;
+  color: var(--glass-text);
   border-radius: 14px 14px 4px 14px;
   padding: 12px 14px;
   font-size: 14px;
@@ -464,7 +467,7 @@ html, body {
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   box-shadow: var(--glass-shadow);
-  color: #fff;
+  color: var(--glass-text);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -513,7 +516,7 @@ html, body {
   border-radius: 24px;
   max-width: 920px;
   width: 100%;
-  max-height: 88vh;
+  max-height: calc(100vh - 48px);
   overflow-y: auto;
   padding: 32px;
 }
@@ -625,7 +628,7 @@ html, body {
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   box-shadow: var(--glass-shadow-sm);
-  color: #fff;
+  color: var(--glass-text);
 }
 .cab-tariff-status__badge--active::before {
   content: "";
@@ -637,7 +640,7 @@ html, body {
   margin-right: 7px;
 }
 .cab-nav-item__badge--active { background: rgba(52, 199, 89, 0.16); color: #1e8e3e; }
-.cab-nav-item.is-active .cab-nav-item__badge--active { background: rgba(52, 199, 89, 0.28); color: #fff; }
+.cab-nav-item.is-active .cab-nav-item__badge--active { background: rgba(52, 199, 89, 0.22); color: #1e8e3e; }
 
 /* ===== Баннер с dialedweb.com — вставлен как есть (классы/эффекты 1:1),
    только position/width адаптированы под встраивание в сайдбар вместо

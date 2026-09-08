@@ -58,7 +58,7 @@
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   box-shadow: var(--glass-shadow-sm);
-  color: #fff;
+  color: var(--glass-text);
 }
 .pricing-tag--outline { border: 1px solid #e2e2e2; color: #6e6e73; }
 .pricing-tag--time {
@@ -130,12 +130,12 @@
   padding: 14px 24px;
   margin-top: 16px;
   border-radius: 999px;
-  border: none;
+  border: 1px solid var(--glass-border);
   background: var(--glass-fill);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   box-shadow: var(--glass-shadow);
-  color: #fff;
+  color: var(--glass-text);
   font-size: 14px;
   font-weight: 600;
   cursor: pointer;
