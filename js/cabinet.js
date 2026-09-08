@@ -31,31 +31,31 @@
   var CHATS = {
     lesnoy: {
       title: 'Чат по проекту «ЖК Лесной», корп. 2',
-      meta: 'Шифрование • Удаление по запросу • По оферте',
+      meta: 'Шифрование Удаление по запросу По оферте',
       messages: [
         { type: 'system', text: 'Документы по проекту «ЖК Лесной» получены. Менеджер назначен автоматически.' },
-        { type: 'in', text: 'Добрый день! Я — ведущий менеджер проекта. Проверили разделы АР, КЖ, ОВ. Нашли 14 замечаний, критичных для экспертизы.', time: '11:42' },
-        { type: 'in', text: 'Протокол замечаний + ведомость исправлений приложил. Отчёт подпишем после согласования.', time: '11:43', file: 'Протокол_ЖК-Лесной_14зам.pdf • 2.4 МБ' },
-        { type: 'out', text: 'Спасибо, смотрим. По разделу КЖ — узлы перепроверите?', time: '11:47' }
+        { type: 'in', text: 'Добрый день! Я - ведущий менеджер проекта. Проверили разделы АР, КЖ, ОВ. Нашли 14 замечаний, критичных для экспертизы.', time: '11:42' },
+        { type: 'in', text: 'Протокол замечаний + ведомость исправлений приложил. Отчёт подпишем после согласования.', time: '11:43', file: 'Протокол_ЖК-Лесной_14зам.pdf 2.4 МБ' },
+        { type: 'out', text: 'Спасибо, смотрим. По разделу КЖ - узлы перепроверите?', time: '11:47' }
       ]
     },
     galereya: {
-      title: 'Чат по проекту «ТЦ Галерея» — смета',
-      meta: 'Шифрование • Удаление по запросу • По оферте',
+      title: 'Чат по проекту «ТЦ Галерея» - смета',
+      meta: 'Шифрование Удаление по запросу По оферте',
       messages: [
         { type: 'system', text: 'Смета по проекту «ТЦ Галерея» получена. Менеджер назначен автоматически.' },
-        { type: 'in', text: 'Смета проверена. Замечаний нет — расценки и объёмы подтверждены обмерами и актуальной нормативной базой.', time: '09:15' },
-        { type: 'in', text: 'Итоговый отчёт и протокол проверки во вложении.', time: '09:16', file: 'Отчёт_ТЦ-Галерея_смета.pdf • 1.1 МБ' },
+        { type: 'in', text: 'Смета проверена. Замечаний нет - расценки и объёмы подтверждены обмерами и актуальной нормативной базой.', time: '09:15' },
+        { type: 'in', text: 'Итоговый отчёт и протокол проверки во вложении.', time: '09:16', file: 'Отчёт_ТЦ-Галерея_смета.pdf 1.1 МБ' },
         { type: 'out', text: 'Спасибо! Закрываем проект.', time: '09:20' }
       ]
     },
     school: {
       title: 'Чат по проекту «Школа на 1100 мест», ИД',
-      meta: 'Шифрование • Удаление по запросу • По оферте',
+      meta: 'Шифрование Удаление по запросу По оферте',
       messages: [
         { type: 'system', text: 'Документы по проекту «Школа на 1100 мест» получены. Менеджер назначен автоматически.' },
-        { type: 'in', text: 'Проверили исполнительную документацию. Не хватает актов АОСР по осям 5–7 — без них раздел не закрыть.', time: 'Вчера, 16:04' },
-        { type: 'in', text: 'Как только пришлёте акты — пересчитаем сроки и закроем замечания.', time: 'Вчера, 16:05' }
+        { type: 'in', text: 'Проверили исполнительную документацию. Не хватает актов АОСР по осям 5-7 - без них раздел не закрыть.', time: 'Вчера, 16:04' },
+        { type: 'in', text: 'Как только пришлёте акты - пересчитаем сроки и закроем замечания.', time: 'Вчера, 16:05' }
       ]
     }
   };
@@ -164,7 +164,7 @@
         type: 'out',
         text: 'Прикрепил документ.',
         time: 'Сейчас',
-        file: file.name + ' • ' + formatFileSize(file.size)
+        file: file.name + ' ' + formatFileSize(file.size)
       });
       renderChat(currentChatId);
       if (messagesEl) messagesEl.scrollTop = messagesEl.scrollHeight;
@@ -189,7 +189,7 @@
     var count = input.files.length;
     if (count === 0) { status.textContent = ''; return; }
     var label = count === 1 ? 'Выбран файл: ' + input.files[0].name : 'Выбрано файлов: ' + count;
-    if (hasActivePlan) label += ' • Тариф: ' + activePlanName;
+    if (hasActivePlan) label += ' Тариф: ' + activePlanName;
     status.textContent = label;
   }
 
@@ -215,7 +215,7 @@
 
   // Monthly project quota per subscription plan; one-off audits (ПД/РД, СД, ИД)
   // aren't in this map, so they show no quota bar. "Used" is the project count
-  // from "Мои проекты" — the same real state the nav badge there is built from.
+  // from "Мои проекты" - the same real state the nav badge there is built from.
   var TARIFF_QUOTAS = {
     'Тариф «Старт»': 5,
     'Тариф «Бизнес»': 15,
@@ -236,8 +236,8 @@
     }
     if (tariffStatusDesc) {
       tariffStatusDesc.textContent = hasActivePlan
-        ? 'Подключён • Оплата по оферте • Загрузка документов доступна'
-        : 'Выберите тариф ниже — он понадобится перед загрузкой документов.';
+        ? 'Подключён Оплата по оферте Загрузка документов доступна'
+        : 'Выберите тариф ниже - он понадобится перед загрузкой документов.';
     }
     if (tariffStatusBadge) {
       tariffStatusBadge.textContent = hasActivePlan ? 'Активен' : 'Не активен';
@@ -252,12 +252,12 @@
       tariffQuota.hidden = quota === undefined;
       if (quota !== undefined && tariffQuotaText && tariffQuotaFill) {
         if (quota === Infinity) {
-          tariffQuotaText.textContent = 'Использовано ' + usedProjects + ' проектов • Безлимит';
+          tariffQuotaText.textContent = 'Использовано ' + usedProjects + ' проектов Безлимит';
           tariffQuotaFill.style.width = '100%';
           tariffQuotaFill.classList.remove('cab-quota-bar__fill--full');
         } else {
           var remaining = Math.max(quota - usedProjects, 0);
-          tariffQuotaText.textContent = 'Использовано ' + usedProjects + ' из ' + quota + ' проектов • Осталось ' + remaining;
+          tariffQuotaText.textContent = 'Использовано ' + usedProjects + ' из ' + quota + ' проектов Осталось ' + remaining;
           tariffQuotaFill.style.width = Math.min((usedProjects / quota) * 100, 100) + '%';
           tariffQuotaFill.classList.toggle('cab-quota-bar__fill--full', usedProjects >= quota);
         }
