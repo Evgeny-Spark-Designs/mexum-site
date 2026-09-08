@@ -26,10 +26,10 @@
   <div class="cab-body">
     <nav class="cab-sidebar">
       <button type="button" class="cab-nav-item is-active" data-view="projects">
-        <span>Мои проекты</span><span class="cab-nav-item__badge">3</span>
+        <span>Мои проекты</span><span class="cab-nav-item__badge" data-badge="projects-count">3</span>
       </button>
       <button type="button" class="cab-nav-item" data-view="chat">
-        <span>Чат с заказчиком</span><span class="cab-nav-item__badge">3</span>
+        <span>Чат с заказчиком</span><span class="cab-nav-item__badge" data-badge="chat-unread">3</span>
       </button>
       <button type="button" class="cab-nav-item" data-view="upload">
         <span>Загрузить документы</span>
@@ -102,20 +102,20 @@
           <div class="cab-chat__list">
             <div class="cab-chat__list-head">
               <span>ЧАТЫ ПО ПРОЕКТАМ</span>
-              <span class="cab-badge-count">3 новых</span>
+              <span class="cab-badge-count" data-badge="chat-total">3 новых</span>
             </div>
             <button type="button" class="cab-chat-item is-active" data-chat="lesnoy">
-              <div class="cab-chat-item__title">ЖК «Лесной», корп. 2 <span class="cab-nav-item__badge" style="background:#0a0a0a;color:#fff;">3</span></div>
+              <div class="cab-chat-item__title">ЖК «Лесной», корп. 2 <span class="cab-nav-item__badge" data-chat-badge="lesnoy" style="background:#0a0a0a;color:#fff;">3</span></div>
               <div class="cab-chat-item__preview">Нашли 14 замечаний по разделу КЖ…</div>
               <div class="cab-chat-item__meta">Доступ только менеджер</div>
             </button>
             <button type="button" class="cab-chat-item" data-chat="galereya">
-              <div class="cab-chat-item__title">ТЦ «Галерея»</div>
+              <div class="cab-chat-item__title">ТЦ «Галерея» <span class="cab-nav-item__badge" data-chat-badge="galereya" style="background:#0a0a0a;color:#fff;">0</span></div>
               <div class="cab-chat-item__preview">Смета проверена, протокол во вложении</div>
               <div class="cab-chat-item__meta">Доступ только менеджер</div>
             </button>
             <button type="button" class="cab-chat-item" data-chat="school">
-              <div class="cab-chat-item__title">Школа 1100 мест <span class="cab-nav-item__badge" style="background:#0a0a0a;color:#fff;">1</span></div>
+              <div class="cab-chat-item__title">Школа 1100 мест <span class="cab-nav-item__badge" data-chat-badge="school" style="background:#0a0a0a;color:#fff;">1</span></div>
               <div class="cab-chat-item__preview">Ждём акты АОСР по осям 5–7</div>
               <div class="cab-chat-item__meta">Доступ только менеджер</div>
             </button>

@@ -150,6 +150,8 @@ html, body {
   color: #fff;
 }
 .cab-sidebar__spacer { flex: 1; }
+.cab-nav-item__badge[hidden],
+.cab-badge-count[hidden] { display: none !important; }
 
 .cab-privacy {
   margin-top: 24px;

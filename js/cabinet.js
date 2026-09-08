@@ -54,6 +54,48 @@
   var metaEl = document.querySelector('[data-chat-meta]');
   var messagesEl = document.querySelector('[data-chat-messages]');
 
+  // ---- Unread badges (per-chat, chat-list total, sidebar nav total) ----
+  // Starting counts match what's shown in the client's reference screenshot;
+  // opening a chat clears its own count and every badge that sums it
+  // recomputes, so this is real state rather than a fixed label.
+  var UNREAD = { lesnoy: 3, galereya: 0, school: 1 };
+
+  var chatUnreadNavBadge = document.querySelector('[data-badge="chat-unread"]');
+  var chatTotalBadge = document.querySelector('[data-badge="chat-total"]');
+  var projectsBadge = document.querySelector('[data-badge="projects-count"]');
+
+  function updateUnreadUI() {
+    var total = 0;
+    Object.keys(UNREAD).forEach(function (id) {
+      total += UNREAD[id];
+      var badge = document.querySelector('[data-chat-badge="' + id + '"]');
+      if (!badge) return;
+      badge.textContent = UNREAD[id];
+      badge.hidden = UNREAD[id] === 0;
+    });
+    if (chatTotalBadge) {
+      chatTotalBadge.textContent = total + ' нов' + (total === 1 ? 'ый' : total >= 2 && total <= 4 ? 'ых' : 'ых');
+      chatTotalBadge.hidden = total === 0;
+    }
+    if (chatUnreadNavBadge) {
+      chatUnreadNavBadge.textContent = total;
+      chatUnreadNavBadge.hidden = total === 0;
+    }
+  }
+
+  function markRead(id) {
+    if (UNREAD[id]) {
+      UNREAD[id] = 0;
+      updateUnreadUI();
+    }
+  }
+
+  if (projectsBadge) {
+    projectsBadge.textContent = document.querySelectorAll('.cab-table tbody tr').length;
+  }
+  updateUnreadUI();
+  markRead('lesnoy'); // it's the chat already open by default
+
   function escapeHtml(s) {
     return s.replace(/[&<>"]/g, function (c) {
       return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c];
@@ -80,9 +122,11 @@
   var chatItems = document.querySelectorAll('.cab-chat-item[data-chat]');
   chatItems.forEach(function (item) {
     item.addEventListener('click', function () {
+      var id = item.getAttribute('data-chat');
       chatItems.forEach(function (c) { c.classList.remove('is-active'); });
       item.classList.add('is-active');
-      renderChat(item.getAttribute('data-chat'));
+      renderChat(id);
+      markRead(id);
     });
   });
 
