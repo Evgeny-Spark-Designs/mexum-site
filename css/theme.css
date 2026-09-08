@@ -47,6 +47,10 @@ html body {
 }
 .framer-6yhlt6 {
   background: rgba(0,0,0,0.05) !important;
+  transition: background 0.2s ease;
+}
+.framer-6yhlt6:hover {
+  background: rgba(0,0,0,0.1) !important;
 }
 
 /* Hardcoded (non-token) text presets baked into the Framer export —

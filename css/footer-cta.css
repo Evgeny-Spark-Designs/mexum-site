@@ -122,4 +122,8 @@
   font-weight: 600;
   cursor: pointer;
   white-space: nowrap;
+  transition: filter 0.2s ease;
+}
+.footer-cta-primary:hover {
+  filter: brightness(0.9);
 }
