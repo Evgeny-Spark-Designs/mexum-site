@@ -1,0 +1,15 @@
+/* ===== Hover-анимация текста кнопок (портировано с sparkevgeny-портфолио):
+   при наведении текущая подпись уезжает вверх, а её копия въезжает снизу. ===== */
+.btn-hover-mask {
+  display: inline-block;
+  position: relative;
+  overflow: hidden;
+  vertical-align: middle;
+}
+.btn-hover-clone {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  white-space: nowrap;
+}

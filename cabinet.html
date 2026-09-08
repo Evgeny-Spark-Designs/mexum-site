@@ -6,6 +6,7 @@
 <title>Личный кабинет - MeXum</title>
 <link rel="stylesheet" href="css/pricing.css">
 <link rel="stylesheet" href="css/cabinet.css">
+<link rel="stylesheet" href="css/button-hover.css">
 </head>
 <body>
 <div class="cab">
@@ -155,29 +156,29 @@
     </div>
     <div class="cab-topbar__spacer"></div>
     <div class="cab-topbar__actions">
-      <a class="cab-btn" href="index.html">На сайт</a>
-      <a class="cab-btn cab-btn--solid" href="index.html">Выйти</a>
+      <a class="cab-btn" href="index.html" data-button-hover>На сайт</a>
+      <a class="cab-btn cab-btn--solid" href="index.html" data-button-hover>Выйти</a>
     </div>
   </header>
 
   <div class="cab-body">
     <nav class="cab-sidebar">
-      <button type="button" class="cab-nav-item is-active" data-view="projects">
+      <button type="button" class="cab-nav-item is-active" data-view="projects" data-button-hover>
         <span>Мои проекты</span><span class="cab-nav-item__badge" data-badge="projects-count">3</span>
       </button>
-      <button type="button" class="cab-nav-item" data-view="chat">
+      <button type="button" class="cab-nav-item" data-view="chat" data-button-hover>
         <span>Чат с заказчиком</span><span class="cab-nav-item__badge" data-badge="chat-unread">3</span>
       </button>
-      <button type="button" class="cab-nav-item" data-view="upload">
+      <button type="button" class="cab-nav-item" data-view="upload" data-button-hover>
         <span>Загрузить документы</span>
       </button>
-      <button type="button" class="cab-nav-item" data-view="tariffs">
+      <button type="button" class="cab-nav-item" data-view="tariffs" data-button-hover>
         <span>Тарифы</span><span class="cab-nav-item__badge" data-tariff-nav-badge>Не активен</span>
       </button>
-      <button type="button" class="cab-nav-item" data-view="docs">
+      <button type="button" class="cab-nav-item" data-view="docs" data-button-hover>
         <span>Документы и отчёты</span>
       </button>
-      <button type="button" class="cab-nav-item" data-view="invoices">
+      <button type="button" class="cab-nav-item" data-view="invoices" data-button-hover>
         <span>Счета</span>
       </button>
       <div class="cab-sidebar__spacer"></div>
@@ -203,7 +204,7 @@
             <span class="cab-view__head-sep"> </span>
             <span class="cab-view__head-sub">По оферте, онлайн</span>
           </div>
-          <button type="button" class="cab-btn cab-btn--solid" data-cab-upload-trigger>Загрузить</button>
+          <button type="button" class="cab-btn cab-btn--solid" data-cab-upload-trigger data-button-hover>Загрузить</button>
         </div>
 
         <div class="cab-table-card">
@@ -320,7 +321,7 @@
           <h2>загрузите файлы здесь</h2>
           <p>Принимаем: PDF, DWG, DXF, DWT, DWF, PLN, PLA, RVT, RFA, RTE, IFC, NWC, SKP, 3DM, DOCX, XLSX, ZIP - а также BIM, GSM, LCF</p>
           <input type="file" id="cabUploadInput" multiple style="display:none">
-          <button type="button" class="cab-btn cab-btn--solid" data-cab-upload-trigger>Выбрать файлы</button>
+          <button type="button" class="cab-btn cab-btn--solid" data-cab-upload-trigger data-button-hover>Выбрать файлы</button>
           <div data-cab-upload-status style="font-size:13px;color:#6e6e73;"></div>
         </div>
       </section>
@@ -522,6 +523,8 @@
     </main>
   </div>
 </div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="js/cabinet.js"></script>
+<script src="js/button-hover.js"></script>
 </body>
 </html>
