@@ -53,7 +53,13 @@
   letter-spacing: 0.03em;
   white-space: nowrap;
 }
-.pricing-tag--solid { background: #0a0a0a; color: #fff; }
+.pricing-tag--solid {
+  background: rgba(10, 10, 10, 0.92);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: rgba(255, 255, 255, 0.08) 0px 0px 0px 1px inset;
+  color: #fff;
+}
 .pricing-tag--outline { border: 1px solid #e2e2e2; color: #6e6e73; }
 .pricing-tag--time {
   display: inline-flex;
@@ -125,11 +131,14 @@
   margin-top: 16px;
   border-radius: 999px;
   border: none;
-  background: #0a0a0a;
+  background: rgba(10, 10, 10, 0.92);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: rgba(255, 255, 255, 0.08) 0px 0px 0px 1px inset, rgba(255, 255, 255, 0.05) 0px 0px 20px inset;
   color: #fff;
   font-size: 14px;
   font-weight: 600;
   cursor: pointer;
   text-decoration: none;
 }
-.pricing-card__cta:hover { background: #262626; }
+.pricing-card__cta:hover { background: rgba(30, 30, 30, 0.95); }
