@@ -20,16 +20,19 @@
     var textEl = getLabelEl(el);
     if (!textEl) return;
 
+    var h = Math.ceil(textEl.getBoundingClientRect().height);
+
     var mask = document.createElement('span');
     mask.className = 'btn-hover-mask';
+    mask.style.height = h + 'px';
     textEl.parentNode.insertBefore(mask, textEl);
     mask.appendChild(textEl);
+    textEl.classList.add('btn-hover-original');
 
     var clone = textEl.cloneNode(true);
     clone.classList.add('btn-hover-clone');
     mask.appendChild(clone);
 
-    var h = textEl.offsetHeight;
     gsap.set(clone, { y: h });
 
     var showingOriginal = true;

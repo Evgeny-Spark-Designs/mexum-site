@@ -5,11 +5,21 @@
   position: relative;
   overflow: hidden;
   vertical-align: middle;
+  line-height: 1;
+  text-decoration: inherit;
+}
+.btn-hover-original,
+.btn-hover-clone {
+  display: block;
+  white-space: nowrap;
+  line-height: 1;
+  color: inherit;
+  text-decoration: inherit;
+  font: inherit;
 }
 .btn-hover-clone {
   position: absolute;
   left: 0;
   top: 0;
   width: 100%;
-  white-space: nowrap;
 }
