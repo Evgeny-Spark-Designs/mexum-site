@@ -628,7 +628,9 @@ html, body {
   font-family: "SF Pro Text", -apple-system, sans-serif;
   font-weight: 400;
   font-size: 13px;
+  line-height: 1.5;
   margin: 0;
+  overflow-wrap: break-word;
 }
 .button, .button-circle { display: flex; align-items: center; justify-content: center; position: relative; }
 .button {
