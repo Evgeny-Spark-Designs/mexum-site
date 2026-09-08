@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Личный кабинет — MeXum</title>
+<link rel="stylesheet" href="css/cabinet.css">
+</head>
+<body>
+<div class="cab">
+
+  <header class="cab-topbar">
+    <button type="button" class="cab-topbar__close" aria-label="Закрыть" onclick="location.href='index.html'">✕</button>
+    <div class="cab-topbar__brand">
+      <img class="cab-topbar__logo" src="images/mexum-logo-navy.png" alt="MeXum">
+      <span class="cab-topbar__tag">ЛК</span>
+      <span>ООО «СтройМонтаж» • Онлайн • По оферте</span>
+    </div>
+    <div class="cab-topbar__spacer"></div>
+    <div class="cab-topbar__actions">
+      <a class="cab-btn" href="index.html">На сайт</a>
+      <a class="cab-btn cab-btn--solid" href="index.html">Выйти</a>
+    </div>
+  </header>
+
+  <div class="cab-body">
+    <nav class="cab-sidebar">
+      <button type="button" class="cab-nav-item is-active" data-view="projects">
+        <span>Мои проекты</span><span class="cab-nav-item__badge">3</span>
+      </button>
+      <button type="button" class="cab-nav-item" data-view="chat">
+        <span>Чат с заказчиком</span><span class="cab-nav-item__badge">3</span>
+      </button>
+      <button type="button" class="cab-nav-item" data-view="upload">
+        <span>Загрузить документы</span>
+      </button>
+      <button type="button" class="cab-nav-item" data-view="docs">
+        <span>Документы и отчёты</span>
+      </button>
+      <button type="button" class="cab-nav-item" data-view="invoices">
+        <span>Счета</span>
+      </button>
+      <div class="cab-sidebar__spacer"></div>
+      <div class="cab-privacy">
+        <p class="cab-privacy__title">КОНФИДЕНЦИАЛЬНОСТЬ</p>
+        <p class="cab-privacy__text">Шифрование. Доступ только у менеджера проекта.<br>Автоудаление 90 дней. Удаление по запросу — сразу.<br>Чат только в личном кабинете.</p>
+        <span class="cab-privacy__pill">ОФЕРТА</span>
+      </div>
+    </nav>
+
+    <main class="cab-main">
+
+      <!-- ===== Мои проекты ===== -->
+      <section class="cab-view is-active" data-view="projects">
+        <div class="cab-view__topline">
+          <div class="cab-view__head">
+            <h1>Мои проекты</h1>
+            <span class="cab-view__head-sep">•</span>
+            <span class="cab-view__head-sub">По оферте, онлайн</span>
+          </div>
+          <button type="button" class="cab-btn cab-btn--solid" data-cab-upload-trigger>Загрузить</button>
+        </div>
+
+        <div class="cab-table-card">
+          <table class="cab-table">
+            <thead>
+              <tr><th>Проект</th><th>Тип</th><th>Статус</th><th>Срок</th><th></th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><div class="cab-project-name">ЖК «Лесной», корпус 2</div><div class="cab-project-meta">MX-2841 • Шифрование</div></td>
+                <td><span class="cab-type-badge">ПД / РД</span></td>
+                <td>Проверяем<div class="cab-progress"><div class="cab-progress__fill" style="width:70%"></div></div></td>
+                <td>Сегодня, 18:00</td>
+                <td><a class="cab-open-link" href="#" data-cab-open>Открыть</a></td>
+              </tr>
+              <tr>
+                <td><div class="cab-project-name">ТЦ «Галерея» — смета</div><div class="cab-project-meta">MX-2839 • Шифрование</div></td>
+                <td><span class="cab-type-badge">СД</span></td>
+                <td>Отчёт готов<div class="cab-progress"><div class="cab-progress__fill" style="width:100%"></div></div></td>
+                <td>Сдан</td>
+                <td><a class="cab-open-link" href="#" data-cab-open>Открыть</a></td>
+              </tr>
+              <tr>
+                <td><div class="cab-project-name">Школа на 1100 мест, ИД</div><div class="cab-project-meta">MX-2834 • Шифрование</div></td>
+                <td><span class="cab-type-badge">ИД</span></td>
+                <td>Замечания<div class="cab-progress"><div class="cab-progress__fill" style="width:50%"></div></div></td>
+                <td>Завтра</td>
+                <td><a class="cab-open-link" href="#" data-cab-open>Открыть</a></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- ===== Чат с заказчиком ===== -->
+      <section class="cab-view" data-view="chat">
+        <div class="cab-view__head" style="margin-bottom:22px;">
+          <h1>Чат с заказчиком</h1>
+        </div>
+        <div class="cab-chat">
+          <div class="cab-chat__list">
+            <div class="cab-chat__list-head">
+              <span>ЧАТЫ ПО ПРОЕКТАМ</span>
+              <span class="cab-badge-count">3 новых</span>
+            </div>
+            <button type="button" class="cab-chat-item is-active">
+              <div class="cab-chat-item__title">ЖК «Лесной», корп. 2 <span class="cab-nav-item__badge" style="background:#0a0a0a;color:#fff;">3</span></div>
+              <div class="cab-chat-item__preview">Нашли 14 замечаний по разделу КЖ…</div>
+              <div class="cab-chat-item__meta">Доступ только менеджер</div>
+            </button>
+            <button type="button" class="cab-chat-item">
+              <div class="cab-chat-item__title">ТЦ «Галерея»</div>
+              <div class="cab-chat-item__preview">Смета проверена, протокол во вложении</div>
+              <div class="cab-chat-item__meta">Доступ только менеджер</div>
+            </button>
+            <button type="button" class="cab-chat-item">
+              <div class="cab-chat-item__title">Школа 1100 мест <span class="cab-nav-item__badge" style="background:#0a0a0a;color:#fff;">1</span></div>
+              <div class="cab-chat-item__preview">Ждём акты АОСР по осям 5–7</div>
+              <div class="cab-chat-item__meta">Доступ только менеджер</div>
+            </button>
+          </div>
+          <div class="cab-chat__thread">
+            <div class="cab-chat__thread-head">
+              <h3>Чат по проекту «ЖК Лесной», корп. 2</h3>
+              <span>Шифрование • Удаление по запросу • По оферте</span>
+            </div>
+            <div class="cab-chat__messages">
+              <div class="cab-msg cab-msg--system">
+                <div class="cab-msg__label">СИСТЕМА</div>
+                Документы по проекту «ЖК Лесной» получены. Менеджер назначен автоматически.
+              </div>
+              <div class="cab-msg cab-msg--in">
+                <div class="cab-msg__label">МЕНЕДЖЕР ПРОЕКТА</div>
+                <div class="cab-msg__bubble">Добрый день! Я — ведущий менеджер проекта. Проверили разделы АР, КЖ, ОВ. Нашли 14 замечаний, критичных для экспертизы.</div>
+                <div class="cab-msg__time">11:42</div>
+              </div>
+              <div class="cab-msg cab-msg--in">
+                <div class="cab-msg__label">МЕНЕДЖЕР ПРОЕКТА</div>
+                <div class="cab-msg__bubble">
+                  Протокол замечаний + ведомость исправлений приложил. Отчёт подпишем после согласования.
+                  <div class="cab-msg__file">
+                    <span class="cab-msg__file-icon">PDF</span>
+                    <span>Протокол_ЖК-Лесной_14зам.pdf • 2.4 МБ</span>
+                  </div>
+                </div>
+                <div class="cab-msg__time">11:43</div>
+              </div>
+              <div class="cab-msg cab-msg--out">
+                <div class="cab-msg__bubble">Спасибо, смотрим. По разделу КЖ — узлы перепроверите?</div>
+                <div class="cab-msg__time">11:47</div>
+              </div>
+            </div>
+            <div class="cab-chat__composer">
+              <button type="button" class="cab-chat__composer-icon" aria-label="Прикрепить файл">📎</button>
+              <input type="text" placeholder="Напишите менеджеру…">
+              <button type="button" class="cab-chat__composer-icon" aria-label="Отправить">➤</button>
+            </div>
+            <div class="cab-chat__footnote">Чат только внутри ЛК. Никаких чатов на основном сайте — только в личном кабинете.</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== Загрузить документы ===== -->
+      <section class="cab-view" data-view="upload">
+        <div class="cab-view__head" style="margin-bottom:6px;">
+          <h1>Загрузить документы</h1>
+        </div>
+        <p class="cab-view__desc">Все загрузки под шифрованием. Доступ только у менеджера проекта. Автоудаление 90 дней. Чат только в личном кабинете.</p>
+        <div class="cab-upload">
+          <div class="cab-upload__circle">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5"></path><path d="M5 12l7-7 7 7"></path></svg>
+          </div>
+          <h2>загрузите файлы здесь</h2>
+          <p>Принимаем: PDF, DWG, DXF, DWT, DWF, PLN, PLA, RVT, RFA, RTE, IFC, NWC, SKP, 3DM, DOCX, XLSX, ZIP — а также BIM, GSM, LCF</p>
+          <input type="file" id="cabUploadInput" multiple style="display:none">
+          <button type="button" class="cab-btn cab-btn--solid" data-cab-upload-trigger>Выбрать файлы</button>
+          <div data-cab-upload-status style="font-size:13px;color:#6e6e73;"></div>
+        </div>
+      </section>
+
+      <!-- ===== Документы и отчёты ===== -->
+      <section class="cab-view" data-view="docs">
+        <div class="cab-view__head" style="margin-bottom:22px;">
+          <h1>Документы и отчёты</h1>
+        </div>
+        <div class="cab-simple-list">
+          <div class="cab-simple-row">
+            <div><div class="cab-project-name">Протокол замечаний — ЖК «Лесной», корп. 2</div><div class="cab-simple-row__meta">PDF • 2.4 МБ • 11:43</div></div>
+            <a class="cab-open-link" href="#">Скачать</a>
+          </div>
+          <div class="cab-simple-row">
+            <div><div class="cab-project-name">Отчёт по смете — ТЦ «Галерея»</div><div class="cab-simple-row__meta">PDF • 1.1 МБ • Сдан</div></div>
+            <a class="cab-open-link" href="#">Скачать</a>
+          </div>
+          <div class="cab-simple-row">
+            <div><div class="cab-project-name">Ведомость исправлений — Школа 1100 мест</div><div class="cab-simple-row__meta">XLSX • 640 КБ • Завтра</div></div>
+            <a class="cab-open-link" href="#">Скачать</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== Счета ===== -->
+      <section class="cab-view" data-view="invoices">
+        <div class="cab-view__head" style="margin-bottom:22px;">
+          <h1>Счета</h1>
+        </div>
+        <div class="cab-simple-list">
+          <div class="cab-simple-row">
+            <div><div class="cab-project-name">Счёт № 2841 — ЖК «Лесной», корп. 2</div><div class="cab-simple-row__meta">10 000 ₽ • Ожидает оплаты</div></div>
+            <a class="cab-open-link" href="#">Оплатить</a>
+          </div>
+          <div class="cab-simple-row">
+            <div><div class="cab-project-name">Счёт № 2839 — ТЦ «Галерея»</div><div class="cab-simple-row__meta">10 000 ₽ • Оплачен</div></div>
+            <a class="cab-open-link" href="#">Квитанция</a>
+          </div>
+        </div>
+      </section>
+
+    </main>
+  </div>
+</div>
+<script src="js/cabinet.js"></script>
+</body>
+</html>
