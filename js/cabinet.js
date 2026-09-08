@@ -132,16 +132,58 @@
 
   // File picker wiring (same pattern as the landing page upload widget).
   var input = document.getElementById('cabUploadInput');
-  var trigger = document.querySelector('[data-cab-upload-trigger]');
+  var triggers = document.querySelectorAll('[data-cab-upload-trigger]');
   var status = document.querySelector('[data-cab-upload-status]');
-  if (input && trigger) {
-    trigger.addEventListener('click', function () { input.click(); });
+
+  // ---- Mandatory tariff selection before the first upload ----
+  var hasActivePlan = false;
+  var activePlanName = '';
+  var modal = document.querySelector('[data-tariff-modal]');
+  var modalClose = document.querySelector('[data-tariff-modal-close]');
+  var tariffButtons = document.querySelectorAll('[data-tariff-select]');
+
+  function showStatus() {
+    if (!status || !input.files) return;
+    var count = input.files.length;
+    if (count === 0) { status.textContent = ''; return; }
+    var label = count === 1 ? 'Выбран файл: ' + input.files[0].name : 'Выбрано файлов: ' + count;
+    if (hasActivePlan) label += ' • Тариф: ' + activePlanName;
+    status.textContent = label;
+  }
+
+  function openTariffModal() {
+    if (modal) modal.hidden = false;
+  }
+
+  function closeTariffModal(cancelled) {
+    if (modal) modal.hidden = true;
+    if (cancelled && input) input.value = '';
+  }
+
+  tariffButtons.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      hasActivePlan = true;
+      activePlanName = btn.getAttribute('data-tariff-name') || '';
+      closeTariffModal(false);
+      showStatus();
+    });
+  });
+
+  if (modalClose) {
+    modalClose.addEventListener('click', function () { closeTariffModal(true); });
+  }
+
+  if (input && triggers.length) {
+    triggers.forEach(function (trigger) {
+      trigger.addEventListener('click', function () { input.click(); });
+    });
     input.addEventListener('change', function () {
-      if (!status) return;
       var count = input.files ? input.files.length : 0;
-      if (count === 0) status.textContent = '';
-      else if (count === 1) status.textContent = 'Выбран файл: ' + input.files[0].name;
-      else status.textContent = 'Выбрано файлов: ' + count;
+      if (count > 0 && !hasActivePlan) {
+        openTariffModal();
+        return;
+      }
+      showStatus();
     });
   }
 })();

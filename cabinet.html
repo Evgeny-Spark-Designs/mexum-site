@@ -4,10 +4,147 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Личный кабинет — MeXum</title>
+<link rel="stylesheet" href="css/pricing.css">
 <link rel="stylesheet" href="css/cabinet.css">
 </head>
 <body>
 <div class="cab">
+
+  <div class="cab-modal-overlay" data-tariff-modal hidden>
+    <div class="cab-modal" role="dialog" aria-modal="true" aria-labelledby="tariffModalTitle">
+      <div class="cab-modal__head">
+        <div>
+          <h2 id="tariffModalTitle">Выберите тариф, чтобы продолжить</h2>
+          <p class="cab-modal__sub">На вашем аккаунте нет активного тарифа. Загрузка документов доступна после выбора тарифа — оплата по оферте.</p>
+        </div>
+        <button type="button" class="cab-modal__close" data-tariff-modal-close aria-label="Закрыть">✕</button>
+      </div>
+      <div class="cab-modal__body">
+
+        <p class="pricing-section__eyebrow" style="margin-top:0;">Разовый аудит по разделам</p>
+        <div class="pricing-grid cab-modal__grid">
+          <div class="pricing-card">
+            <div class="pricing-card__tags">
+              <span class="pricing-tag pricing-tag--solid">ПД / РД</span>
+              <span class="pricing-tag--time">48ч</span>
+            </div>
+            <h3 class="pricing-card__name">Аудит ПД / РД</h3>
+            <ul class="pricing-card__features">
+              <li>По разделам или комплект</li>
+              <li>Протокол + ведомость</li>
+            </ul>
+            <div class="pricing-card__price-row">
+              <div class="pricing-card__price">
+                <span class="pricing-card__price-from">от</span>
+                <span class="pricing-card__price-value">35 000</span>
+                <span class="pricing-card__price-unit">₽ / раздел</span>
+              </div>
+            </div>
+            <button type="button" class="pricing-card__cta" data-tariff-select data-tariff-name="Аудит ПД / РД">Выбрать</button>
+          </div>
+
+          <div class="pricing-card pricing-card--featured">
+            <div class="pricing-card__tags">
+              <span class="pricing-tag pricing-tag--solid">СД</span>
+              <span class="pricing-tag pricing-tag--outline">Чаще выбирают</span>
+            </div>
+            <h3 class="pricing-card__name">Аудит сметной документации</h3>
+            <ul class="pricing-card__features">
+              <li>ФЕР / ТЕР / ТСН / ГЭСН</li>
+              <li>Протокол завышений</li>
+            </ul>
+            <div class="pricing-card__price-row">
+              <div class="pricing-card__price">
+                <span class="pricing-card__price-from">от</span>
+                <span class="pricing-card__price-value">25 000</span>
+                <span class="pricing-card__price-unit">₽ / проект</span>
+              </div>
+            </div>
+            <button type="button" class="pricing-card__cta" data-tariff-select data-tariff-name="Аудит СД">Выбрать</button>
+          </div>
+
+          <div class="pricing-card">
+            <div class="pricing-card__tags">
+              <span class="pricing-tag pricing-tag--solid">ИД</span>
+              <span class="pricing-tag--time">от 24ч</span>
+            </div>
+            <h3 class="pricing-card__name">Аудит исполнительной документации</h3>
+            <ul class="pricing-card__features">
+              <li>АОСР / Журналы / Схемы</li>
+              <li>Комплект к сдаче</li>
+            </ul>
+            <div class="pricing-card__price-row">
+              <div class="pricing-card__price">
+                <span class="pricing-card__price-from">от</span>
+                <span class="pricing-card__price-value">30 000</span>
+                <span class="pricing-card__price-unit">₽ / комплект</span>
+              </div>
+            </div>
+            <button type="button" class="pricing-card__cta" data-tariff-select data-tariff-name="Аудит ИД">Выбрать</button>
+          </div>
+        </div>
+
+        <p class="pricing-section__eyebrow pricing-section__title--sub">Абонент • Для потока проектов</p>
+        <div class="pricing-grid cab-modal__grid">
+          <div class="pricing-card">
+            <div class="pricing-card__tags">
+              <span class="pricing-tag pricing-tag--solid">5 проектов</span>
+            </div>
+            <h3 class="pricing-card__name">Тариф «Старт»</h3>
+            <ul class="pricing-card__features">
+              <li>5 проектов в месяц</li>
+              <li>Чат с заказчиком в ЛК</li>
+            </ul>
+            <div class="pricing-card__price-row">
+              <div class="pricing-card__price">
+                <span class="pricing-card__price-value">90 000</span>
+                <span class="pricing-card__price-unit">₽ / мес</span>
+              </div>
+            </div>
+            <button type="button" class="pricing-card__cta" data-tariff-select data-tariff-name="Тариф «Старт»">Подключить</button>
+          </div>
+
+          <div class="pricing-card pricing-card--featured">
+            <div class="pricing-card__tags">
+              <span class="pricing-tag pricing-tag--solid">15 проектов</span>
+              <span class="pricing-tag pricing-tag--outline">Популярный</span>
+            </div>
+            <h3 class="pricing-card__name">Тариф «Бизнес»</h3>
+            <ul class="pricing-card__features">
+              <li>15 проектов в месяц</li>
+              <li>Сопровождение 24ч, приоритет</li>
+            </ul>
+            <div class="pricing-card__price-row">
+              <div class="pricing-card__price">
+                <span class="pricing-card__price-value">220 000</span>
+                <span class="pricing-card__price-unit">₽ / мес</span>
+              </div>
+            </div>
+            <button type="button" class="pricing-card__cta" data-tariff-select data-tariff-name="Тариф «Бизнес»">Подключить</button>
+          </div>
+
+          <div class="pricing-card">
+            <div class="pricing-card__tags">
+              <span class="pricing-tag pricing-tag--solid">Безлимит</span>
+            </div>
+            <h3 class="pricing-card__name">Тариф «Профи»</h3>
+            <ul class="pricing-card__features">
+              <li>Безлимит проектов</li>
+              <li>Выделенный менеджер</li>
+            </ul>
+            <div class="pricing-card__price-row">
+              <div class="pricing-card__price">
+                <span class="pricing-card__price-value">450 000</span>
+                <span class="pricing-card__price-unit">₽ / мес</span>
+              </div>
+            </div>
+            <button type="button" class="pricing-card__cta" data-tariff-select data-tariff-name="Тариф «Профи»">Подключить</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
 
   <header class="cab-topbar">
     <button type="button" class="cab-topbar__close" aria-label="Закрыть" onclick="location.href='index.html'">✕</button>
