@@ -61,6 +61,10 @@
     text-align: center;
     font-size: 17px;
   }
+  /* A bit more air before the tab list below the banner. */
+  .framer-1ljjz0s {
+    gap: 110px !important;
+  }
 }
 
 /* Button itself: swap the big liquid-glass CTA treatment (large padding,
