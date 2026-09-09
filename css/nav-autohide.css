@@ -18,3 +18,11 @@ html.nav-hidden .framer-dpe114-container {
 html.nav-hidden .framer-dpe114-container {
   transform: translateY(-120%);
 }
+
+/* On phones the header stays fixed in place at all times instead of
+   hiding on scroll-down and popping back in on scroll-up. */
+@media (max-width: 809.98px) {
+  html.nav-hidden .framer-dpe114-container {
+    transform: none !important;
+  }
+}

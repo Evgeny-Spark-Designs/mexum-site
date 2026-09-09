@@ -82,7 +82,12 @@
      and row gap, and use order to put the hamburger after the CTA
      (was sitting between the logo and the CTA). */
   nav.framer-ZUPdC.framer-90tdu2 {
-    padding: 16px 16px !important;
+    padding: 16px 16px 16px 8px !important;
+  }
+  /* Logo's own box has 8px padding baked in on top of the nav's own —
+     drop it so the wordmark sits closer to the screen edge. */
+  .framer-1yvwb09 {
+    padding: 8px 8px 8px 0 !important;
   }
   .framer-yq3j0r {
     gap: 8px !important;
