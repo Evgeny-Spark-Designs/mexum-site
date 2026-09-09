@@ -186,6 +186,14 @@ html body {
     transform: none !important;
     object-fit: cover !important;
   }
+  /* This screenshot's actual content (the dark glass mockup) sits in the
+     right half of the source image, with blank gradient filling the left
+     half — center-cropping shows mostly that blank half instead of the
+     mockup. executive-risks.png is an evenly-filled photo, so it keeps
+     the default center crop. */
+  img[src*="panel-estimate-overcharges.png"] {
+    object-position: right center !important;
+  }
   figure.framer-1q2kqkh {
     overflow: hidden !important;
   }
