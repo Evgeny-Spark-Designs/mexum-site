@@ -151,7 +151,17 @@ html body {
   .framer-ZDn9o .framer-1wmr65e {
     flex: none !important;
     width: 100% !important;
-    padding: 24px 24px 0 !important;
+    padding: 16px 16px 0 !important;
+    gap: 20px !important;
+  }
+  .framer-ZDn9o .framer-jmip68 {
+    gap: 12px !important;
+  }
+  .framer-ZDn9o .framer-vbh1j9 {
+    gap: 12px !important;
+  }
+  .framer-1juskmm {
+    gap: 28px !important;
   }
   .framer-ZDn9o .framer-1wnk26 {
     height: 331px !important;
