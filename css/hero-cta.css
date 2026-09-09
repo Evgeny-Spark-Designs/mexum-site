@@ -22,3 +22,27 @@
 .framer-170n5sr .framer-gd6ur-container {
   display: none !important;
 }
+
+/* UTP line next to the hero heading, above the "Начать проверку" button —
+   that column was just the button floating in empty space before. */
+.hero-utp-text {
+  margin: 0 0 14px;
+  font-family: "Inter Display", sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1.35;
+  color: #0a0a0a;
+  text-align: left;
+}
+.hero-utp-highlight {
+  background-image: linear-gradient(277deg, rgb(1, 117, 255) 0%, rgb(255, 205, 125) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+@media (max-width: 809.98px) {
+  .hero-utp-text {
+    text-align: center;
+    font-size: 18px;
+  }
+}
