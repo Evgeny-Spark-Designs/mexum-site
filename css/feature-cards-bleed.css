@@ -32,3 +32,13 @@
     font-size: 14px !important;
   }
 }
+
+/* On phones the tab list doesn't switch anything — all three cards just
+   stack and scroll past it — so it's a redundant static list here (the
+   scroll-sync it drives on desktop only exists on the sticky tab bar
+   there). Removed for phones only; tablet/desktop keep it. */
+@media (max-width: 809.98px) {
+  .framer-1209mbl-container {
+    display: none !important;
+  }
+}

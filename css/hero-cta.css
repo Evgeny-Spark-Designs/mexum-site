@@ -61,9 +61,11 @@
     text-align: center;
     font-size: 17px;
   }
-  /* A bit more air before the tab list below the banner. */
+  /* Tab list is hidden on phones (feature-cards-bleed.css), so this gap
+     now sits directly before the first card — much smaller than the
+     110px that used to clear the (now-gone) tab list above it. */
   .framer-1ljjz0s {
-    gap: 110px !important;
+    gap: 40px !important;
   }
 }
 
