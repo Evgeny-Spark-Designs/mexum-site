@@ -79,8 +79,9 @@
   /* Header row overflowed on phones: desktop padding (30px sides) plus
      the logo, hamburger and "Личный кабинет" pill together were wider
      than the viewport, clipping the CTA text. Tighten the nav padding
-     and row gap, and use order to put the hamburger after the CTA
-     (was sitting between the logo and the CTA). */
+     and row gap. The CTA pill itself is dropped entirely (below) since
+     the hamburger panel already has its own "Личный кабинет" link, so
+     order/flex-shrink on it no longer matters. */
   nav.framer-ZUPdC.framer-90tdu2 {
     padding: 16px 16px 16px 8px !important;
   }
@@ -92,12 +93,9 @@
   .framer-yq3j0r {
     gap: 8px !important;
     flex-wrap: nowrap !important;
+    justify-content: space-between !important;
   }
-  .framer-1of73k0 { order: 1; flex-shrink: 0; }
-  .framer-1yzb3cd { order: 2; flex-shrink: 1; min-width: 0; }
-  .mobile-nav-toggle { order: 3; flex-shrink: 0; width: 40px; height: 40px; }
-  .btn-nav-cta .framer-6yhlt6 {
-    padding: 10px 14px !important;
-    white-space: nowrap;
-  }
+  .framer-1of73k0 { flex-shrink: 0; }
+  .framer-1yzb3cd { display: none !important; }
+  .mobile-nav-toggle { flex-shrink: 0; width: 40px; height: 40px; }
 }
