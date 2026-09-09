@@ -12,3 +12,23 @@
   border-top-right-radius: 0 !important;
   border-bottom-right-radius: 0 !important;
 }
+
+/* More breathing room between the sticky tab list and the card next to
+   it — the fixed 64px gap from the Framer source felt tight once the
+   card started bleeding wider toward the section edge. Column mode
+   (tablet, stacked) gets the same value as vertical spacing. */
+@media (min-width: 810px) {
+  .framer-ash0x3 {
+    gap: 96px !important;
+  }
+}
+
+/* "шкалы" — the sticky tab list (Проектная документация / Сметы и BOQ /
+   Исполнительная документация) — reads a bit large next to the bigger
+   bled cards; a smaller label size gives it a lighter footprint. */
+@media (min-width: 810px) {
+  .framer-1209mbl-container a,
+  .framer-1209mbl-container p {
+    font-size: 14px !important;
+  }
+}
