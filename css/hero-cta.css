@@ -24,11 +24,24 @@
 }
 
 /* UTP line next to the hero heading, above the "Начать проверку" button —
-   that column was just the button floating in empty space before. */
+   that column was just the button floating in empty space before. Styled
+   as a glass banner matching the cabinet's .cookies-popup (same tokens:
+   rgba(0,0,0,..) tint, inset shadow, 10px blur, 15px radius). */
+.hero-utp-banner {
+  background-color: rgba(0, 0, 0, 0.024);
+  box-shadow: rgba(0, 0, 0, 0.075) 0px 0px 0px 1px inset, rgba(0, 0, 0, 0.05) 0px 0px 45px inset;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 15px;
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
 .hero-utp-text {
-  margin: 0 0 14px;
+  margin: 0;
   font-family: "Inter Display", sans-serif;
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 500;
   line-height: 1.35;
   color: #0a0a0a;
@@ -41,8 +54,35 @@
   color: transparent;
 }
 @media (max-width: 809.98px) {
+  .hero-utp-banner {
+    align-items: center;
+  }
   .hero-utp-text {
     text-align: center;
-    font-size: 18px;
+    font-size: 17px;
   }
+}
+
+/* Button itself: swap the big liquid-glass CTA treatment (large padding,
+   gradient inset borders, heavy multi-layer shadow, upload icon) for the
+   same compact glass pill as the cabinet's .button/.cookies-button —
+   "less massive", matching that banner's own CTA. */
+.btn-start-check {
+  margin-top: 0 !important;
+}
+.btn-start-check .framer-6yhlt6 {
+  background: rgba(0, 0, 0, 0.03) !important;
+  border-color: rgba(0, 0, 0, 0.12) !important;
+  box-shadow: rgba(0, 0, 0, 0.08) 0px 0px 16px inset !important;
+  backdrop-filter: blur(10px) !important;
+  -webkit-backdrop-filter: blur(10px) !important;
+  border-radius: 999px !important;
+  padding: 10px 20px !important;
+}
+.btn-start-check .framer-6yhlt6::before {
+  content: none !important;
+}
+.btn-start-check .framer-3nflbn p {
+  color: rgb(10, 10, 10) !important;
+  font-size: 14px !important;
 }
