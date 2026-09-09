@@ -545,6 +545,9 @@ html, body {
     transform: translateX(-100%);
     transition: transform 0.25s ease;
     box-shadow: 8px 0 32px rgba(10, 10, 10, 0.16);
+    /* Solid, near-opaque fill — as a fixed overlay it had no background
+       of its own, so page content underneath showed straight through. */
+    background: #fbfbfc;
   }
   .cab-sidebar.is-open { transform: translateX(0); }
   .cab-chat { flex-direction: column; height: auto; }
