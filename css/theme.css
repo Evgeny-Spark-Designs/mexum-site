@@ -123,6 +123,7 @@ html body {
     flex: none !important;
     width: 100% !important;
     padding: 16px 16px 0 !important;
+    gap: 20px !important;
   }
   .framer-JNpes .framer-1cv3wx1 {
     gap: 16px !important;
