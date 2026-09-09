@@ -21,7 +21,20 @@ figure.panel-img-wide {
 }
 
 @media (max-width: 1199.98px) {
+  /* The desktop bleed effect (figure wider than its card, overflow
+     visible so it spills past the edge) doesn't fit once the layout is
+     a single narrow column — the figure just overflows the card's left
+     edge with an unrounded corner instead. Constrain it back to a
+     normal, contained slot like the other two cards in this group. */
+  .framer-181v5l2:has(.panel-img-wide),
+  .framer-JNpes:has(.panel-img-wide) {
+    overflow: hidden !important;
+  }
   figure.panel-img-wide {
+    position: static !important;
+    width: 100% !important;
+    height: 100% !important;
+    aspect-ratio: auto !important;
     border-radius: 0 0 24px 24px !important;
   }
 }

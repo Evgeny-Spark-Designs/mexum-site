@@ -37,6 +37,11 @@
 .mobile-nav-toggle.is-open .mobile-nav-toggle__bars span:nth-child(2) { opacity: 0; }
 .mobile-nav-toggle.is-open .mobile-nav-toggle__bars span:nth-child(3) { top: 5px; transform: rotate(-45deg); }
 
+/* Same glass treatment as the nav bar itself (css/nav-autohide.css),
+   which is in turn the same tint/inset-shadow/blur as the cabinet's
+   .cookies-popup banner — kept as its own outer drop-shadow too since
+   this panel floats freely over page content instead of sitting on a
+   solid sidebar. */
 .mobile-nav-panel {
   display: none;
   position: fixed;
@@ -46,11 +51,16 @@
   z-index: 200;
   flex-direction: column;
   gap: 4px;
-  background: #fff;
-  border: 1px solid #ececec;
-  border-radius: 20px;
+  background-color: rgba(0, 0, 0, 0.024);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: none;
+  border-radius: 15px;
   padding: 12px;
-  box-shadow: 0 20px 48px rgba(10, 10, 10, 0.16);
+  box-shadow:
+    rgba(0, 0, 0, 0.075) 0px 0px 0px 1px inset,
+    rgba(0, 0, 0, 0.05) 0px 0px 45px inset,
+    0 20px 48px rgba(10, 10, 10, 0.16);
 }
 .mobile-nav-panel[hidden] { display: none !important; }
 .mobile-nav-panel.is-open { display: flex; }
@@ -63,7 +73,7 @@
   color: #0a0a0a;
   text-decoration: none;
 }
-.mobile-nav-panel a:hover { background: #f5f5f5; }
+.mobile-nav-panel a:hover { background: rgba(0, 0, 0, 0.05); }
 .mobile-nav-panel a.mobile-nav-cta {
   margin-top: 6px;
   background: #0a0a0a;
