@@ -7,6 +7,11 @@
   max-width: 100% !important;
   width: 100% !important;
 }
+@media (min-width: 810px) {
+  .framer-17tbosj {
+    align-items: flex-end !important;
+  }
+}
 .btn-start-check {
   width: 100% !important;
   display: flex !important;
