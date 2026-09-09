@@ -1,4 +1,11 @@
 /* ===== Footer CTA card — same fluted-glass gradient as the upload illustration ===== */
+@media (max-width: 809.98px) {
+  .framer-kl79kt {
+    margin-left: 20px !important;
+    margin-right: 20px !important;
+    width: auto !important;
+  }
+}
 .framer-kl79kt {
   background-color: #c7c9cd;
   background-image:
