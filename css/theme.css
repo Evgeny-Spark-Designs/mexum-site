@@ -204,11 +204,36 @@ html body {
   .framer-1d69pvs,
   .framer-1209mbl-container,
   .framer-cqht81,
-  .framer-zx8cpx,
-  .framer-5y0zbm-container,
-  .framer-1x5hqty-container {
+  .framer-zx8cpx {
     position: static !important;
     top: auto !important;
+  }
+}
+
+/* The three step-card containers (.framer-19an8tm-container /
+   .framer-1x5hqty-container / .framer-5y0zbm-container, ids
+   step-01/02/03) reproduce the desktop "stacking cards" scroll effect
+   on phones too: each card sticks in place and the next one slides up
+   to cover it. Unlike desktop, the "01. 02. 03." tab bar above them
+   (.framer-zx8cpx, reset to static above) stays a plain static element
+   here — you just scroll past it instead of it sticking/highlighting
+   in sync. Tablet keeps the cards static too — that layout hasn't been
+   tuned for the pinned/stacked look. */
+@media (min-width: 810px) and (max-width: 1199.98px) {
+  .framer-19an8tm-container,
+  .framer-1x5hqty-container,
+  .framer-5y0zbm-container {
+    position: static !important;
+    top: auto !important;
+  }
+}
+@media (max-width: 809.98px) {
+  .framer-19an8tm-container,
+  .framer-1x5hqty-container,
+  .framer-5y0zbm-container {
+    position: sticky !important;
+    top: 84px !important;
+    z-index: 1 !important;
   }
 }
 
