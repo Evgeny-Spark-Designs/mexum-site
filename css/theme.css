@@ -168,6 +168,18 @@ html body {
     flex: none !important;
     width: 100% !important;
   }
+
+  /* Checklist rows that hold two side-by-side text columns (e.g.
+     "Рекомендации по исправлению" / "Статус рекомендательный...") squeeze
+     each to ~113px, wrapping every word onto its own line. Stack them
+     instead so each gets the row's full width. */
+  .framer-o1thv5:has(.framer-v3ildb + .framer-v3ildb) {
+    flex-wrap: wrap !important;
+  }
+  .framer-o1thv5:has(.framer-v3ildb + .framer-v3ildb) .framer-v3ildb {
+    width: 100% !important;
+    flex: none !important;
+  }
 }
 
 /* These Framer components use position:sticky so their text/tab column
