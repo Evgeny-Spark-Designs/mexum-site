@@ -85,12 +85,18 @@
 .btn-start-check {
   margin-top: 0 !important;
 }
+/* No backdrop-filter here — this button already sits inside
+   .hero-utp-banner, which has its own backdrop-filter. Nesting a
+   second backdrop-filter inside the first is a known WebKit/Safari
+   bug: the inner element can render as solid black instead of blurred
+   glass (real device confirmed, not a caching artifact). One blur
+   layer per glass stack; the button just needs a plain tint. */
 .btn-start-check .framer-6yhlt6 {
-  background: rgba(0, 0, 0, 0.03) !important;
+  background: rgba(0, 0, 0, 0.05) !important;
   border-color: rgba(0, 0, 0, 0.12) !important;
   box-shadow: rgba(0, 0, 0, 0.08) 0px 0px 16px inset !important;
-  backdrop-filter: blur(10px) !important;
-  -webkit-backdrop-filter: blur(10px) !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
   border-radius: 999px !important;
   padding: 10px 20px !important;
 }

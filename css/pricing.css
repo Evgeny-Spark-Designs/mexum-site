@@ -52,10 +52,14 @@
   letter-spacing: 0.03em;
   white-space: nowrap;
 }
+/* No backdrop-filter — nested inside .pricing-card, which already has
+   its own. A second backdrop-filter nested in the first is a known
+   WebKit/Safari bug: the inner element renders solid black on real
+   iOS devices instead of blurred glass. */
 .pricing-tag--solid {
   background: var(--glass-fill);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
   box-shadow: var(--glass-shadow-sm);
   color: var(--glass-text);
 }
@@ -122,6 +126,8 @@
   color: #8a8a8e;
   margin: 6px 0 0;
 }
+/* Same nested-backdrop-filter fix as .pricing-tag--solid above — this
+   button sits inside .pricing-card too. */
 .pricing-card__cta {
   display: inline-flex;
   align-items: center;
@@ -131,8 +137,8 @@
   border-radius: 999px;
   border: 1px solid var(--glass-border);
   background: var(--glass-fill);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
   box-shadow: var(--glass-shadow);
   color: var(--glass-text);
   font-size: 14px;

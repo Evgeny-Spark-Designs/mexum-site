@@ -275,6 +275,33 @@ html, body {
   text-decoration: underline;
 }
 
+/* On phones the 5-column table doesn't fit — turn each row into a
+   stacked card instead of a horizontally-scrolling/cramped table. */
+@media (max-width: 680px) {
+  .cab-table thead { display: none; }
+  .cab-table,
+  .cab-table tbody,
+  .cab-table tr,
+  .cab-table tbody td {
+    display: block;
+    width: 100%;
+  }
+  .cab-table tbody tr {
+    padding: 16px 20px;
+    border-bottom: 1px solid #f2f2f2;
+  }
+  .cab-table tbody tr:last-child { border-bottom: none; }
+  .cab-table tbody td {
+    padding: 0;
+    border-bottom: none;
+  }
+  .cab-table tbody td:not(:first-child) {
+    margin-top: 10px;
+  }
+  .cab-progress { width: 100%; }
+  .cab-open-link { display: inline-block; }
+}
+
 /* ---- Chat ---- */
 .cab-chat {
   display: flex;
@@ -559,8 +586,10 @@ html, body {
   position: fixed;
   inset: 0;
   background: rgba(10, 10, 10, 0.5);
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
+  /* No backdrop-filter here — this overlay contains .pricing-card
+     (.cab-modal__grid .pricing-card), which has its own backdrop-filter.
+     Nesting a second one on the overlay risks the same WebKit/Safari
+     black-render bug fixed for the card's tag/CTA above. */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -720,6 +749,23 @@ html, body {
 }
 .fade-out-cookies { opacity: 0; pointer-events: none; }
 .cookies-popup[hidden] { display: none !important; }
+/* On phones js/cabinet.js moves the banner out of the off-canvas
+   sidebar (where it was only visible if the user happened to open the
+   menu) to <body>, and this makes it float bottom-center instead —
+   its original dialedweb.com presentation, per the comment above. */
+.cookies-popup--floating {
+  position: fixed !important;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: calc(100% - 32px);
+  max-width: 380px;
+  z-index: 250;
+  box-shadow:
+    rgba(0, 0, 0, 0.075) 0px 0px 0px 1px inset,
+    rgba(0, 0, 0, 0.05) 0px 0px 45px inset,
+    0 20px 48px rgba(10, 10, 10, 0.16);
+}
 .cookies-underlined { text-decoration: underline; cursor: pointer; }
 /* Инверсия под светлый фон (у dialedweb — белый текст на тёмном): те же
    классы/структура/эффекты, только rgb(255,255,255,..) -> rgb(0,0,0,..). */

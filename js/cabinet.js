@@ -41,8 +41,17 @@
     });
   });
 
-  // ---- Dismiss the privacy banner (same fade-out-cookies class as the source) ----
+  // ---- Privacy banner: on phones it's a bottom-center popup shown right
+  // away on entering the cabinet, not something buried inside the
+  // off-canvas side menu that only appears if the user opens it. Move
+  // it out of .cab-sidebar to <body> so it's independent of the
+  // sidebar's own transform/open state. Desktop keeps it in place
+  // (the sidebar there is always visible, not off-canvas). ----
   var cookiesPopup = document.querySelector('.cookies-popup');
+  if (cookiesPopup && window.matchMedia('(max-width: 900px)').matches) {
+    document.body.appendChild(cookiesPopup);
+    cookiesPopup.classList.add('cookies-popup--floating');
+  }
   var cookiesAccept = document.querySelector('.cookies-button');
   if (cookiesPopup && cookiesAccept) {
     cookiesAccept.addEventListener('click', function () {
