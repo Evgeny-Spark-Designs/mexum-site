@@ -67,6 +67,10 @@
   .framer-1ljjz0s {
     gap: 40px !important;
   }
+  /* More air between the heading and the UTP banner right under it. */
+  .framer-17tbosj {
+    gap: 32px !important;
+  }
 }
 
 /* Button itself: swap the big liquid-glass CTA treatment (large padding,
