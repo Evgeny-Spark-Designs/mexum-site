@@ -180,6 +180,18 @@ html body {
     width: 100% !important;
     flex: none !important;
   }
+
+  /* Third step card ("Структурированный отчёт") has one extra checklist
+     row, making it taller than the other two — match card 1's height and
+     drop its checkmark badges (redundant once every card is the same
+     size and this one no longer needs the extra visual weight). */
+  #step-03 .framer-1l4bl6k {
+    display: none !important;
+  }
+  .framer-ZDn9o {
+    height: 730px !important;
+    overflow: hidden !important;
+  }
 }
 
 /* These Framer components use position:sticky so their text/tab column
