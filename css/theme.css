@@ -175,7 +175,6 @@ html body {
 }
 
 @media (max-width: 1199.98px) {
-  img[src*="panel-estimate-overcharges.png"],
   img[src*="panel-executive-risks.png"] {
     position: static !important;
     top: auto !important;
@@ -186,15 +185,31 @@ html body {
     transform: none !important;
     object-fit: cover !important;
   }
-  /* This screenshot's actual content (the dark glass mockup) sits in the
-     right half of the source image, with blank gradient filling the left
-     half — center-cropping shows mostly that blank half instead of the
-     mockup. executive-risks.png is an evenly-filled photo, so it keeps
-     the default center crop. */
-  img[src*="panel-estimate-overcharges.png"] {
-    object-position: right center !important;
-  }
   figure.framer-1q2kqkh {
     overflow: hidden !important;
+  }
+}
+
+/* This card's own width shifts with the card-bleed/gap tuning elsewhere
+   on the page, which kept breaking the old absolute+scale(1.35) bleed
+   trick tuned for one specific card width (leaving a gap on one side or
+   clipping the other, depending on the current width). object-fit:cover
+   fills the figure at any width with no manual tuning, at every
+   breakpoint. On phones js/panel-image-swap.js swaps the src to a
+   dedicated tight crop (just the three item cells, no heading). */
+img.panel-img-estimate {
+  position: static !important;
+  top: auto !important;
+  right: auto !important;
+  width: 100% !important;
+  height: 100% !important;
+  max-width: 100% !important;
+  transform: none !important;
+  object-fit: cover !important;
+  object-position: center !important;
+}
+@media (max-width: 809.98px) {
+  img.panel-img-estimate {
+    object-position: left center !important;
   }
 }
